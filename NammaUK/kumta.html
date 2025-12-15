@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumta - Tourist Places</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container nav">
+      <img src="assets/icons/favicon.png" height="50px" width="50px">
+      <a href="index.html" class="logo font-bold">Uttara Kannada</a>
+      <button onclick="history.back()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="sub-header" data-aos="fade-down">
+      <div class="container">
+        <h1>Kumta - Tourist Places</h1>
+      </div>
+    </section>
+    <section id="places" class="py-6">
+      <div class="container">
+        <div id="placesGrid" class="places-grid"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <small class="text-muted" data-i18n="footer_text">&copy; 2025 NammaUK</small>
+    </div>
+  </footer>
+
+  <script>
+    const talukName = 'Kumta';
+  </script>
+  <script src="js/places-renderer.js"></script>
+
+  <script src="js/translations.js"></script>
+    <script src="js/dev.js"></script>
+</body>
+
+</html>

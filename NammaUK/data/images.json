@@ -1,0 +1,374 @@
+{
+    "ankola": [
+        {
+            "name": "Honey Beach",
+            "description": "A serene beach with golden sands.",
+            "image": "https://getsetclick.wordpress.com/wp-content/uploads/2012/07/img_1114.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Bankikodla Beach",
+            "description": "A tranquil beach perfect for relaxation.",
+            "image": "https://content.jdmagicbox.com/comp/bankikodla/d4/9999p8386.8386.210706214734.r7d4/catalogue/siesta-beach-stay-dubbanshashi-bankikodla-hotels-lx47f09d0g.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Belekeri Beach",
+            "description": "A scenic beach with fishing activities.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/53/5e/7f/om-beach.jpg?w=600&h=400&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Vibhooti Falls",
+            "description": "A hidden gem with pristine waters.",
+            "image": "https://bongtrekker.com/wp-content/uploads/2017/07/ezgif.com-webp-to-jpg.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Yana Caves",
+            "description": "Massive black limestone rock formations surrounded by dense forest.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/0d/ae/1b/20191101-163138-01-largejpg.jpg?w=1200&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "karwar": [
+        {
+            "name": "Rabindranath Tagore Beach",
+            "description": "A beautiful beach named after the famous poet.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Glazing_Rays_on_Rabindranath_Tagore_Beach%2C_Karwar.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Devbagh Beach",
+            "description": "A pristine beach with scenic views.",
+            "image": "https://hblimg.mmtcdn.com/content/hubble/img/karwardestimages/mmt/activities/m_Devbagh_Beach_1_l_480_640.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Karwar Port",
+            "description": "A bustling port with picturesque surroundings.",
+            "image": "https://www.karnataka.com/wp-content/uploads/2017/11/karwar-port.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Sadashivgad Fort",
+            "description": "A historic fort with stunning views.",
+            "image": "https://www.trawell.in/admin/images/upload/500908300Karwar_Sadashivgad_Fort_Karwar_Main.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Majali Beach",
+            "description": "A serene beach ideal for relaxation.",
+            "image": "https://www.karnataka.com/wp-content/uploads/2017/11/majali-beach.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "INS Chapal Warship Museum",
+            "description": "A warship converted into a museum.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/INS_Chapal_%28K94%29.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Kurumgad Island",
+            "description": "A tortoise-shaped island known for its scenic beauty.",
+            "image": "https://www.trawell.in/admin/images/upload/500908525Karwar_Kurumgad_Island_Main.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "dandeli": [
+        {
+            "name": "Dandeli Wildlife Sanctuary",
+            "description": "A sanctuary with diverse flora and fauna.",
+            "image": "https://s7ap1.scene7.com/is/image/incredibleindia/dandeli-national-park-dharwad-karnataka-2-attr-hero?qlt=82&ts=1726720288750",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Kali River Rafting",
+            "description": "An adventurous river rafting experience.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/26/c8/68/river-rafting-in-dandeli.jpg?w=900&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Syntheri Rocks",
+            "description": "A massive limestone rock formation.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/41/02/a9/syntheri-rocks.jpg?w=1200&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Shiroli Peak",
+            "description": "A scenic viewpoint in the sanctuary.",
+            "image": "https://media1.thrillophilia.com/filestore/qcclxzpcq4zzeiq3hzi2rkkeap3b_skyes.jpg?w=400&dpr=2",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Supa Dam",
+            "description": "Major dam on the Kali river, scenic views and boating available.",
+            "image": "https://media1.thrillophilia.com/filestore/h41y17xkq4hs0ysy55nyryo8qtsi_1577191575_shutterstock_541668826.jpg?w=400&dpr=2",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Molangi Falls",
+            "description": "A serene waterfall amidst lush greenery.",
+            "image": "https://media1.thrillophilia.com/filestore/jaxsrim4qirpcnrm30tr2bvx1int_courtallam-five-falls-opt.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "bhatkal": [
+        {
+            "name": "Gokarna Beach",
+            "description": "A famous beach known for its serene environment.",
+            "image": "https://media1.thrillophilia.com/filestore/yb5og479g0ftmfbkjul1kkgnm5ni_Om-Beach-2.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Murudeshwar Temple",
+            "description": "A famous temple with a towering statue of Lord Shiva.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Murudeshwara_Temple%2CUttar_Karnataka.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Murudeshwar Beach",
+            "description": "Sandy beach near the temple, scenic and peaceful.",
+            "image": "https://pushkarcottages.com/wp-content/uploads/2023/11/Murudeshwar-Beach-1.webp",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Netrani Island",
+            "description": "A popular spot for scuba diving and snorkeling.",
+            "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyY-5hf_LdNVHKCUoIawVQ4wQVdV5Hc7lqs_4uZlhH7ZsjmLfSLhGhHx1GqKUGlAr0vaOoNucba7AxsEaMqyILnXEg0GraMY0fA28-dQo4Y2XunavseLUsknCfhSUagI6_7DcL99w=w408-h302-k-no",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Bhatkal Lighthouse",
+            "description": "Historic lighthouse overlooking the Arabian Sea.",
+            "image": "https://static.toiimg.com/photo/imgsize-95420,msid-112436461/112436461.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "haliyal": [
+        {
+            "name": "Haliyal Forts",
+            "description": "A fort with a rich history.",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMVtOTp2EgLItHIJImskPI7kwwPw1gth1j7-8QoFUF8gJ881CtH4wtvf1wattnye4CggcXnjNjd0xJrauuWXc8YsDqiE1b4BUHNFp5iPmrhagsNS2AS2iZgxCl7ENgkKWocEcnvFoYbmdL/s1600/07+Mallikarjuna+Temple+Haliyal+Fort.JPG",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Phansoli Elephant Camp - Kali Tiger Reserve",
+            "description": "Elephant camp with a large population of elephants and tigers.",
+            "image": "https://content3.jdmagicbox.com/comp/haliyal/k2/9999p8284.8284.220609222031.w8k2/catalogue/phansoli-elephant-camp-haliyal-tourist-attraction-9thz7ewM3w.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "honnavar": [
+        {
+            "name": "Apsarakonda Falls",
+            "description": "A picturesque waterfall surrounded by lush greenery.",
+            "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixPOYZd5qYL5Kbj3l_NK9io8w-kTl-_y3AQCg34-ctLxAoTjhTwuoR2BwXP6FfH8w6p-L3tIycfo2Nb9YXy3FwmI2j7wzeKFYphpk-Fi1dunVfnmTi68_abhq368HRTHY0OZ8N85KyLtyI/s2048/dsc_6907.JPG",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Eco Beach Honnavar",
+            "description": "A quiet beach perfect for nature lovers, minimal crowd, great for photography.",
+            "image": "https://i0.wp.com/travelwithkamath.com/wp-content/uploads/2023/09/Tonka-Beach.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Sharavathi Hanging Bridge",
+            "description": "A picturesque bridge over the Sharavathi River.",
+            "image": "https://i0.wp.com/aravindgundumane.com/wp-content/uploads/2020/12/Hanging-bridge-across-Sharavathi-river.jpg?resize=1137%2C758&ssl=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Kasarkod Beach",
+            "description": "A picturesque beach with coconut trees.",
+            "image": "https://lh3.googleusercontent.com/geougc-cs/AMBA38scziZzFsSfHYLc-Ued29R7H4HdKyzRsyrWdFXG-XMLMkB3r15F_-jgj8Suvoc_uTHzsR0WZEbhVYkIaSmKU6WXom02ULfeEj9ZCvT4OLUujWCtvyZDcmzfMCxQHFkKTjcKZM00kf9P7G8=w281-h211-p",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Sharavathi Backwaters",
+            "description": "A picturesque backwater with coconut trees.",
+            "image": "https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-4.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "joida": [
+        {
+            "name": "Anshi National Park",
+            "description": "A national park with rich biodiversity.",
+            "image": "https://aryango.com/wp-content/uploads/2023/01/Dandeli-Anshi-Tiger-Reserve-Kali-National-Park-Karnataka-1024x576.webp",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Kavala Caves",
+            "description": "Kavala Caves are ancient limestone formations ",
+            "image": "https://images.deccanchronicle.com/dc-Cover-nn67ino8kud64jhbm4d471a1m7-20190901024152.Medi.jpeg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Sykes Point",
+            "description": "Sykes Point is a popular spot for scuba diving and snorkeling.",
+            "image": "https://avathioutdoors.gumlet.io/travelGuide/dev/dandeli_P3878.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Nagoda Lake",
+            "description": "Nagoda Lake is a picturesque lake surrounded by dense forest.",
+            "image": "https://dandeliadventures.com/wp-content/uploads/2022/05/Screenshot-2023-09-08-202710.png",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "kumta": [
+        {
+            "name": "Om Beach",
+            "description": "A famous beach shaped like the Om symbol.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Om_Beach%2C_Gokarna_%28Sunset%29.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Kudle Beach",
+            "description": "A peaceful beach with coconut trees.",
+            "image": "https://vushii.com/uploads/1553770658_Kadle%20Beach,%20Uttara%20Kannada%20(Karwar)2.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Yana Caves",
+            "description": "Massive black limestone rock formations surrounded by dense forest.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/0d/ae/1b/20191101-163138-01-largejpg.jpg?w=1200&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Half Moon Beach",
+            "description": "A peaceful beach with coconut trees.",
+            "image": "https://static.toiimg.com/thumb/47014014/Half_moon_beach_ED.jpg?width=1200&height=900",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Paradise Beach",
+            "description": "A peaceful beach with coconut trees.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/27/2f/63/view-while-reaching-paradise.jpg?w=900&h=500&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Mirjan Fort",
+            "description": "A peaceful fort showcasing Tibetan culture.",
+            "image": "https://kalavadyfarmstay.com/wp-content/uploads/2023/02/img_20170501_070530_0031.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "mundgod": [
+        {
+            "name": "Doeguling Tibetan Settlement",
+            "description": "A peaceful monastery showcasing Tibetan culture.",
+            "image": "https://i0.wp.com/traveldreams.live/wp-content/uploads/2018/02/mungod-16-1.jpg?resize=1300%2C867&ssl=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Gaden Jangtse Monastery",
+            "description": "A peaceful monastery showcasing Tibetan culture.",
+            "image": "https://i.ytimg.com/vi/F5rXHfEcVkk/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgTShKMA8=&rs=AOn4CLCryZvMaxpQopx0CSGHrUnllQ8O1Q",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Drepung Loseling Monastery",
+            "description": "A peaceful monastery showcasing Tibetan culture.",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Drepung_Loseling_Monastery_Temple_%28Karnataka_-_India%29_%2832877229023%29.jpg/1200px-Drepung_Loseling_Monastery_Temple_%28Karnataka_-_India%29_%2832877229023%29.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "siddapur": [
+        {
+            "name": "Unchalli Falls",
+            "description": "A stunning waterfall amidst dense forests.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/86/f0/72/view-from-first-step.jpg?w=1200&h=1200&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Burude Falls",
+            "description": "A stunning waterfall amidst dense forests.",
+            "image": "https://cdn.tripuntold.com/media/photos/location/2018/09/20/1f8cb185-f9dd-468c-a133-4a74ce825a96.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Mavinagundi Falls",
+            "description": "A stunning waterfall amidst dense forests.",
+            "image": "https://images.news18.com/kannada/uploads/2024/07/jog-falls-dp-2024-07-d2b6f38e88f49ea910c659b6fad70d59.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "sirsi": [
+        {
+            "name": "Marikamba Temple",
+            "description": "A famous temple dedicated to Goddess Marikamba.",
+            "image": "https://images.tv9kannada.com/wp-content/uploads/2024/01/sirsi-marikamba-devi-fair-2024.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Sahasralinga",
+            "description": "A sacred site in Karnataka's Shalmala River, famous for numerous Shiva lingas carved into riverbed rocks, installed by the Sirsi kingdom king Sadashivarayavarma (17th-18th century) .",
+            "image": "https://static.toiimg.com/img/93303613/Master.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Banavasi Madhukeshwara Temple",
+            "description": "An ancient Hindu temple dedicated to Lord Shiva .",
+            "image": "https://www.gosahin.com/go/p/f/1544295439_Banavasi-Temple1.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Devimane Ghat",
+            "description": "Devimane is a hill station and high-altitude village in Sirsi taluk of Malenadu region in Karnataka.",
+            "image": "https://i0.wp.com/stepstogether.in/wp-content/uploads/2021/02/IMG_20191102_083720-01.jpg?ssl=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Bennehole Falls",
+            "description": "A beautiful waterfall surrounded by forests.",
+            "image": "https://www.karnataka.com/wp-content/uploads/2009/07/benne-hole-falls-sirsi.jpg",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Shri Kshetra Manjuguni",
+            "description": "Ancient temple known for its spiritual significance and architectural beauty.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/ef/95/3f/pragharam-of-temple-which.jpg?w=1200&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Shivaganga Falls",
+            "description": "Beautiful waterfall surrounded by lush greenery, popular for nature walks.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/eb/d6/4c/shivaganga-falls.jpg?w=1200&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Mattighatta Falls",
+            "description": "Scenic waterfall ideal for trekking and photography enthusiasts.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/01/05/bc/mattighatta-falls.jpg?w=1200&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Muregar Falls",
+            "description": "Picturesque waterfall nestled in dense forest, perfect for nature lovers.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/5d/80/fc/a-view-of-water-going.jpg?w=900&h=500&s=1",
+            "mapLink": "https://maps.google.com"
+        }
+    ],
+    "yellapur": [
+        {
+            "name": "Sathodi Falls",
+            "description": "A beautiful waterfall surrounded by forests.",
+            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/50/69/23/the-falls.jpg?w=1200&h=-1&s=1",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Magod Falls",
+            "description": "A beautiful waterfall surrounded by forests.",
+            "image": "https://static2.tripoto.com/media/filter/tst/img/398165/SpotDocument/1631184016_1631184003595.jpg.webp",
+            "mapLink": "https://maps.google.com"
+        },
+        {
+            "name": "Jenukallu Gudda",
+            "description": "Jenukallu Gudda is a spectacular viewpoint in the Western Ghats near Yellapur, Karnataka.",
+            "image": "https://www.trawell.in/admin/images/upload/00122342Jenukallu_gudda_Sirsi.jpg",
+            "mapLink": "https://maps.google.com"
+        }
+    ]
+}
