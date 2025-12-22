@@ -650,37 +650,39 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   <script>
-    // Simple visit counter using CountAPI with a localStorage fallback
+    // Global visit counter using CountAPI with retry and periodic refresh.
     (function () {
       const el = document.getElementById('visit-count');
       if (!el) return;
 
-      async function fetchCount() {
+      el.textContent = '...';
+      let attempts = 0;
+
+      async function hitCount() {
         try {
-          const res = await fetch('https://api.countapi.xyz/hit/nammauk/visits');
-          if (!res.ok) throw new Error('countapi failed');
+          const res = await fetch('/api/counter', { method: 'POST' });
+          if (!res.ok) throw new Error('api failed');
           const j = await res.json();
           if (typeof j.value !== 'undefined') {
             el.textContent = j.value.toLocaleString();
             return;
           }
-        } catch (e) {
-          // ignore and fallback
-        }
-
-        // fallback: use per-browser counter (helps show something when CountAPI blocked)
-        try {
-          const key = 'nammauk_visits_fallback';
-          let v = Number(localStorage.getItem(key) || 0) + 1;
-          localStorage.setItem(key, v);
-          el.textContent = v.toLocaleString();
-        } catch (e) {
-          el.textContent = 'N/A';
+        } catch (err) {
+          el.textContent = '—';
         }
       }
 
-      // Run after small delay so it doesn't block render
-      setTimeout(fetchCount, 300);
+      async function refreshValue() {
+        try {
+          const r = await fetch('/api/counter');
+          if (!r.ok) return;
+          const j = await r.json();
+          if (typeof j.value !== 'undefined') el.textContent = j.value.toLocaleString();
+        } catch (e) {}
+      }
+
+      setTimeout(hitCount, 300);
+      setInterval(refreshValue, 60000);
     })();
   </script>
   <script src="js/dev.js"></script>
