@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="css/style.css">
@@ -352,19 +353,49 @@
         }
 
         // Button handlers
-        document.getElementById('useLocationBtn').addEventListener('click', () => {
+        document.getElementById('useLocationBtn').addEventListener('click', async () => {
           if (!navigator.geolocation) return alert('Geolocation not supported in this browser');
+          // quick user-agent log to help debug mobile issues
+          console.log('Geolocation requested, UA=', navigator.userAgent || 'unknown');
+
+          // If Permissions API available, check geolocation permission first
+          try {
+            if (navigator.permissions && navigator.permissions.query) {
+              const p = await navigator.permissions.query({ name: 'geolocation' });
+              if (p.state === 'denied') {
+                alert('Location access is denied. Enable location permission for this site in your browser settings and retry.');
+                return;
+              }
+            }
+          } catch (e) {
+            // ignore permission check failures
+            console.warn('Permissions check failed', e);
+          }
+
+          const geoOpts = { timeout: 15000, maximumAge: 0, enableHighAccuracy: true };
           navigator.geolocation.getCurrentPosition(pos => {
             openNearbyModal({ lat: pos.coords.latitude, lng: pos.coords.longitude });
           }, (err) => {
-            // Show manual input panel if geolocation fails
-            document.getElementById('manualLocationPanel').classList.remove('hidden');
+            // Show manual input panel if geolocation fails and display helpful message
+            const panel = document.getElementById('manualLocationPanel');
+            panel.classList.remove('hidden');
             document.getElementById('manualLocationInput').focus();
-            // notify user succinctly
             console.warn('Geolocation failed:', err);
-            // keep friendly alert if needed
-            // alert('Unable to get location. Please allow location access or enter location manually.');
-          }, { timeout: 8000 });
+            const msgEl = document.getElementById('manualLocateMsg');
+            if (msgEl) {
+              let text = 'Unable to get location. ';
+              if (err && err.code) {
+                switch (err.code) {
+                  case 1: text += 'Permission denied. Please allow location access.'; break;
+                  case 2: text += 'Position unavailable.'; break;
+                  case 3: text += 'Timeout obtaining location. Try again or enter location manually.'; break;
+                  default: text += err.message || 'Unknown error.'; break;
+                }
+              }
+              msgEl.textContent = text;
+              msgEl.style.display = 'block';
+            }
+          }, geoOpts);
         });
 
         // Manual location panel handlers
