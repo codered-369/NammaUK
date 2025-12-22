@@ -223,7 +223,20 @@
 
   <footer class="site-footer">
     <div class="container">
-      <small class="text-muted" data-i18n="footer_text">&copy; <span id="currentYear"></span> NammaUK</small>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;width:100%;position:relative;">
+          <div style="width:100%;display:flex;align-items:center;justify-content:center;">
+            <small class="text-muted" data-i18n="footer_text">&copy; <span id="currentYear"></span> NammaUK</small>
+          </div>
+          <div id="site-views" style="display:flex;align-items:center;gap:6px;font-size:12px;">
+            <div id="visit-badge" style="background:#0ea5a4;color:#fff;padding:1px 6px;border-radius:999px;display:flex;align-items:center;gap:3px;box-shadow:0 1px 0 rgba(0,0,0,0.06);font-size:11px;position:absolute;right:8px;top:50%;transform:translateY(-50%);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:inherit">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span id="visit-count" style="font-size:11px;font-weight:600;">–</span>
+            </div>
+          </div>
+        </div>
     </div>
   </footer>
 
@@ -635,6 +648,40 @@
   <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Simple visit counter using CountAPI with a localStorage fallback
+    (function () {
+      const el = document.getElementById('visit-count');
+      if (!el) return;
+
+      async function fetchCount() {
+        try {
+          const res = await fetch('https://api.countapi.xyz/hit/nammauk/visits');
+          if (!res.ok) throw new Error('countapi failed');
+          const j = await res.json();
+          if (typeof j.value !== 'undefined') {
+            el.textContent = j.value.toLocaleString();
+            return;
+          }
+        } catch (e) {
+          // ignore and fallback
+        }
+
+        // fallback: use per-browser counter (helps show something when CountAPI blocked)
+        try {
+          const key = 'nammauk_visits_fallback';
+          let v = Number(localStorage.getItem(key) || 0) + 1;
+          localStorage.setItem(key, v);
+          el.textContent = v.toLocaleString();
+        } catch (e) {
+          el.textContent = 'N/A';
+        }
+      }
+
+      // Run after small delay so it doesn't block render
+      setTimeout(fetchCount, 300);
+    })();
   </script>
   <script src="js/dev.js"></script>
 
