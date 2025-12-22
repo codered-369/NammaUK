@@ -85,6 +85,8 @@
       <div class="container p-4">
         <a href="taluks.html" class="block py-2" data-i18n="nav_taluks">All Taluks</a>
         <a href="about.html" class="block py-2" data-i18n="nav_about">About Uttara Kannada</a>
+
+        
         <div class="mb-4">
           <select id="mobile-lang" onchange="setLanguage(this.value)" class="lang-dropdown w-15px">
             <option value="en">English</option>
@@ -104,7 +106,7 @@
           <p class="text-muted" data-i18n="hero_desc">Explore beaches, forests, waterfalls and heritage across the 12
             taluks of Uttara
             Kannada.</p>
-          <div class="mt-4">
+          <div class="mt-4 hero-cta">
             <a href="taluks.html" class="btn"><span data-i18n="btn_explore">Explore</span> <i
                 class="fa-solid fa-arrow-right ml-2"></i></a>
           </div>
@@ -149,24 +151,33 @@
 
 
 
-
-
-
-
-
-
-
-
+          </div>
+          <!-- decorative stats overlay -->
+          <div class="hero-stats" aria-hidden="true">
+            <div class="stat"><strong>12</strong><span>Taluks</span></div>
+            <div class="stat"><strong>100+</strong><span>Places</span></div>
           </div>
         </div>
+      </div>
+      <!-- Decorative layered SVG waves (animated) -->
+      <div class="hero-waves" aria-hidden="true">
+        <svg class="wave wave1" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440 120 L0 120 Z" fill="#ffffff" opacity="0.95"></path>
+        </svg>
+        <svg class="wave wave2" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,48 C200,90 420,10 720,56 C1020,102 1220,30 1440,56 L1440 120 L0 120 Z" fill="#ffffff" opacity="0.85"></path>
+        </svg>
+        <svg class="wave wave3" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,72 C260,110 520,20 720,72 C920,124 1180,40 1440,72 L1440 120 L0 120 Z" fill="#ffffff" opacity="0.8"></path>
+        </svg>
       </div>
     </section>
 
     <section id="map-section" class="py-8 bg-white">
       <div class="container">
         <div class="listing-header" data-aos="fade-up">
-          <h2 class="text-2xl font-bold">Explore via Map</h2>
-          <div class="small text-muted">Click on pins to see details</div>
+          <h2 class="text-2xl font-bold" data-i18n="map_title">Explore via Map</h2>
+          <div class="small text-muted" data-i18n="map_subtitle">Click on pins to see details</div>
         </div>
         <div id="uk-map" class="w-full h-[400px] rounded-xl shadow-lg border border-gray-200" data-aos="zoom-in"
           data-aos-delay="200"></div>
@@ -186,6 +197,22 @@
           <button class="filter-btn" data-filter="waterfall" data-i18n="filter_waterfall">Waterfalls</button>
           <button class="filter-btn" data-filter="fort" data-i18n="filter_fort">Forts</button>
           <button class="filter-btn" data-filter="island" data-i18n="filter_island">Islands</button>
+          <!-- Additional normalized filters discovered in data/places.json -->
+          <button class="filter-btn" data-filter="museum" data-i18n="filter_museum">Museums</button>
+          <button class="filter-btn" data-filter="bridge" data-i18n="filter_bridge">Bridges</button>
+          <button class="filter-btn" data-filter="lighthouse" data-i18n="filter_lighthouse">Lighthouses</button>
+          <button class="filter-btn" data-filter="rock-formation" data-i18n="filter_rock_formation">Rock formations</button>
+          <button class="filter-btn" data-filter="backwater" data-i18n="filter_backwater">Backwaters</button>
+          <button class="filter-btn" data-filter="lake" data-i18n="filter_lake">Lakes</button>
+          <button class="filter-btn" data-filter="dam" data-i18n="filter_dam">Dams</button>
+          <button class="filter-btn" data-filter="national-park" data-i18n="filter_national_park">National parks</button>
+          <button class="filter-btn" data-filter="wildlife-sanctuary" data-i18n="filter_wildlife">Wildlife</button>
+          <button class="filter-btn" data-filter="adventure" data-i18n="filter_adventure">Adventure / Water sports</button>
+          <button class="filter-btn" data-filter="caves" data-i18n="filter_caves">Caves</button>
+          <button class="filter-btn" data-filter="scenic" data-i18n="filter_scenic">Scenic viewpoints</button>
+          <button class="filter-btn" data-filter="monastery" data-i18n="filter_monastery">Monasteries</button>
+          <button class="filter-btn" data-filter="cultural-village" data-i18n="filter_cultural_village">Cultural villages</button>
+          <button class="filter-btn" data-filter="elephant-camp" data-i18n="filter_elephant_camp">Elephant camps</button>
         </div>
         <div id="featured-grid" class="places-grid">
           <!-- dynamically populated -->
@@ -196,19 +223,88 @@
 
   <footer class="site-footer">
     <div class="container">
-      <small class="text-muted" data-i18n="footer_text">&copy; 2025 Uttara Kannada Tourism</small>
+      <small class="text-muted" data-i18n="footer_text">&copy; <span id="currentYear"></span> NammaUK</small>
     </div>
   </footer>
 
   <script src="js/translations.js"></script>
 
   <script>
+    // Hero typing animation: cycles between English and Kannada hero titles
+    (function heroTyping() {
+      function start() {
+        const el = document.querySelector('[data-i18n="hero_title"]');
+        if (!el || typeof translations === 'undefined') return;
+
+        // ensure the element uses a single inline span for animated text
+        el.classList.add('typing');
+
+        const en = (translations['en'] && translations['en']['hero_title']) ? translations['en']['hero_title'] : 'Discover Uttara Kannada';
+        const kn = (translations['kn'] && translations['kn']['hero_title']) ? translations['kn']['hero_title'] : 'ಉತ್ತರ ಕನ್ನಡವನ್ನು ಅನ್ವೇಷಿಸಿ';
+
+        const texts = [en, kn];
+        let ti = 0;
+        let ci = 0;
+        let deleting = false;
+
+        const typeSpeed = 90;
+        const deleteSpeed = 45;
+        const pauseAfterFull = 1400;
+
+        function tick() {
+          const full = texts[ti];
+          if (!deleting) {
+            ci++;
+            el.textContent = full.slice(0, ci);
+            if (ci >= full.length) {
+              deleting = true;
+              setTimeout(tick, pauseAfterFull);
+            } else {
+              setTimeout(tick, typeSpeed);
+            }
+          } else {
+            ci--;
+            el.textContent = full.slice(0, ci);
+            if (ci <= 0) {
+              deleting = false;
+              ti = (ti + 1) % texts.length;
+              setTimeout(tick, 300);
+            } else {
+              setTimeout(tick, deleteSpeed);
+            }
+          }
+        }
+
+        // start after short delay to allow AOS/translations init
+        setTimeout(tick, 600);
+      }
+
+      // Start when translations.js and DOM are ready
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        // small timeout to ensure translations.js DOM replacements complete
+        setTimeout(start, 200);
+      } else {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(start, 200));
+      }
+    })();
     // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
+    const hamIcon = hamburger.querySelector('i');
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
       hamburger.classList.toggle('active');
+
+      // Toggle Font Awesome icon between bars and xmark for clear visual state
+      if (hamIcon) {
+        if (hamIcon.classList.contains('fa-bars')) {
+          hamIcon.classList.remove('fa-bars');
+          hamIcon.classList.add('fa-xmark');
+        } else {
+          hamIcon.classList.remove('fa-xmark');
+          hamIcon.classList.add('fa-bars');
+        }
+      }
     });
 
     // Initialize AOS
@@ -223,6 +319,11 @@
     const slides = document.querySelectorAll('.hero-slide');
     const slideCount = slides.length;
 
+    // Mobile optimizations: lazy-load hero images where supported
+    slides.forEach(s => {
+      try { s.setAttribute('loading', 'lazy'); } catch (e) { /* ignore */ }
+    });
+
     console.log('Hero Slider: Found', slideCount, 'slides');
     console.log('First slide classes:', slides[0]?.className);
 
@@ -233,10 +334,40 @@
       console.log('Switched to slide', currentSlide);
     }
 
+    function prevSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      slides[currentSlide].classList.add('active');
+      console.log('Switched to slide (prev)', currentSlide);
+    }
+
     if (slideCount > 0) {
       setInterval(nextSlide, 4000);
       console.log('Hero slider initialized with', slideCount, 'images');
     }
+
+    // Touch / swipe support for mobile hero
+    (function enableHeroSwipe() {
+      const heroEl = document.getElementById('heroSlider');
+      if (!heroEl) return;
+      let startX = 0;
+      let endX = 0;
+      const THRESHOLD = 40; // px
+
+      heroEl.addEventListener('touchstart', (e) => {
+        startX = e.changedTouches[0].clientX;
+      }, {passive: true});
+
+      heroEl.addEventListener('touchmove', (e) => {
+        endX = e.changedTouches[0].clientX;
+      }, {passive: true});
+
+      heroEl.addEventListener('touchend', () => {
+        const dx = startX - endX;
+        if (Math.abs(dx) < THRESHOLD) return;
+        if (dx > 0) nextSlide(); else prevSlide();
+      });
+    })();
 
     // utility to resolve image string
     function resolveImage(img) {
@@ -350,7 +481,11 @@
           });
         });
         // Prioritize Sirsi places for featured section
-        const featuredIds = ['marikamba_temple', 'sahasralinga', 'murudeshwar_temple', 'gokarna_beach', 'apsarakonda_falls', 'yana_caves', 'magod_falls', 'dandeli_wildlife_sanctuary', 'mirjan_fort'];
+        const featuredIds = [
+          'marikamba_temple', 'sahasralinga', 'murudeshwar_temple', 'gokarna_beach',
+          'apsarakonda_falls', 'yana_caves', 'magod_falls', 'dandeli_wildlife_sanctuary', 'mirjan_fort',
+          'devbagh_beach', 'kurumgad_island', 'ins_chapal_museum', 'netrani_island', 'om_beach', 'unchalli_falls', 'anshi_national_park'
+        ];
         const featured = [];
 
         // Add specific priority places first
@@ -360,9 +495,9 @@
         });
 
         // Fill remaining slots if any (though we defined 9)
-        if (featured.length < 9) {
+        if (featured.length < 16) {
           places.forEach(p => {
-            if (featured.length < 9 && !featured.includes(p)) {
+            if (featured.length < 16 && !featured.includes(p)) {
               featured.push(p);
             }
           });
@@ -431,50 +566,75 @@
           AOS.refresh();
         }
 
-        // Listen for language changes
-        window.addEventListener('languageChanged', (e) => {
-          renderPlaces(currentFilter === 'all' ? allPlaces : allPlaces.filter(p => {
-            const type = (p.type || '').toLowerCase();
-            return type.includes(currentFilter);
-          }));
-        });
+        
 
-        // Listen for language changes to re-render grid
-        window.addEventListener('languageChanged', () => {
-          const activeBtn = document.querySelector('.filter-btn.active');
-          if (activeBtn) activeBtn.click();
-        });
+        // Filter button logic (single-select)
+        const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
 
-        // Initial renderS
-        renderPlaces(featured);
+        function normalizeKey(s) {
+          return (s || '')
+            .toString()
+            .toLowerCase()
+            .replace(/[&(),\/]+/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .replace(/\s/g, '-');
+        }
 
-        // Filter button logic
-        const filterButtons = document.querySelectorAll('.filter-btn');
+        function applyFilter(filter) {
+          const MAX = 16;
+          if (!filter || filter === 'all') {
+            // prefer curated featured list when showing 'All'
+            if (typeof featured !== 'undefined' && Array.isArray(featured) && featured.length > 0) {
+              renderPlaces(featured.slice(0, MAX));
+            } else {
+              renderPlaces(allPlaces.slice(0, MAX));
+            }
+            return;
+          }
+
+          const filtered = allPlaces.filter(p => {
+            const key = normalizeKey(p.type || '');
+            return key.includes(filter);
+          }).slice(0, MAX);
+
+          renderPlaces(filtered);
+        }
+
         filterButtons.forEach(btn => {
           btn.addEventListener('click', () => {
             const filter = btn.dataset.filter;
-            currentFilter = filter;
 
-            // Update active state
+            // Make this button the single active one
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filter places
-            let filtered;
-            if (filter === 'all') {
-              filtered = allPlaces.slice(0, 9);
-            } else {
-              filtered = allPlaces.filter(p => {
-                const type = (p.type || '').toLowerCase();
-                return type.includes(filter);
-              }).slice(0, 9);
-            }
-
-            renderPlaces(filtered);
+            // Apply normalized filter
+            applyFilter(normalizeKey(filter));
           });
         });
+
+        // initialize with 'all' selected and render
+        const allBtn = filterButtons.find(b => b.dataset.filter === 'all');
+        if (allBtn) {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          allBtn.classList.add('active');
+        }
+        applyFilter('all');
+
+        // Re-apply on language change (ensure active button text updates via translations.js)
+        window.addEventListener('languageChanged', () => {
+          const active = document.querySelector('.filter-btn.active');
+          if (active) active.click();
+        });
+
+        // (filter initialization handled above for single-select)
       })
       .catch(e => console.error('Failed to load data', e));
+  </script>
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   <script src="js/dev.js"></script>
 
@@ -483,3 +643,6 @@
 </body>
 
 </html>
+
+
+

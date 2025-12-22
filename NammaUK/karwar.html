@@ -38,7 +38,7 @@
   </main>
   <footer class="site-footer">
     <div class="container">
-      <small class="text-muted" data-i18n="footer_text">&copy; 2025 NammaUK</small>
+      <small class="text-muted" data-i18n="footer_text">&copy; <span id="currentYear"></span> NammaUK</small>
     </div>
   </footer>
 
@@ -47,6 +47,10 @@
   </script>
   <script>
     const talukName = 'Karwar';
+  </script>
+    <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   <script src="js/places-renderer.js"></script>
 

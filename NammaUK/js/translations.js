@@ -15,6 +15,21 @@ const translations = {
         'filter_nature': 'Nature',
         'filter_fort': 'Forts',
         'filter_island': 'Islands',
+        'filter_museum': 'Museums',
+        'filter_bridge': 'Bridges',
+        'filter_lighthouse': 'Lighthouses',
+        'filter_rock_formation': 'Rock formations',
+        'filter_backwater': 'Backwaters',
+        'filter_lake': 'Lakes',
+        'filter_dam': 'Dams',
+        'filter_national_park': 'National parks',
+        'filter_wildlife': 'Wildlife',
+        'filter_adventure': 'Adventure / Water sports',
+        'filter_caves': 'Caves',
+        'filter_scenic': 'Scenic viewpoints',
+        'filter_monastery': 'Monasteries',
+        'filter_cultural_village': 'Cultural villages',
+        'filter_elephant_camp': 'Elephant camps',
         'btn_view_map': 'View on map',
         'btn_see_more': 'See more in',
         'footer_text': '© {year} NammaUK',
@@ -49,6 +64,8 @@ const translations = {
         'taluk_sirsi': 'Sirsi',
         'taluk_yellapur': 'Yellapur',
 
+        'taluk_heading_suffix': ' - Tourist Places',
+
         // About Page Content (HTML)
         'about_overview_content': `<strong>District Headquarters:</strong> Karwar<br>
                         <strong>Major Commercial Center:</strong> Sirsi<br>
@@ -70,6 +87,20 @@ const translations = {
                         <li><strong>Dandeli Wildlife Sanctuary:</strong> Protects 834 km² of semi-evergreen and bamboo forest, famous for the elusive black panther</li>
                         <li><strong>Bhimgad Wildlife Sanctuary:</strong> Home to Wroughton's free-tailed bat, endemic to the region</li>
                         <li><strong>Attiveri Bird Sanctuary:</strong> Home to 79 species of birds including migratory birds from 22 countries</li>`
+        ,
+        // Additional about page keys used in about.html
+        'about_overview_intro': 'Uttara Kannada is the fifth largest district in the Indian state of Karnataka. It is bordered by the state of Goa and Belagavi districts to the north, Dharwad District and Haveri District to the east, Shivamogga District, and Udupi District to the south, and the Laccadive Sea (Arabian Sea) to the west.',
+        'about_demo_content': 'The main language spoken in this district is Kannada (55.34%), followed by Konkani (18.21%), Urdu (11.83%), Marathi (9.52%), and Telugu (1.36%). The population is predominantly Hindu (82.61%), with significant Muslim (13.08%) and Christian (3.10%) communities.',
+        'about_literacy_title': 'Literacy by Taluk:',
+        'about_culture_yakshagana': '<strong>Yakshagana:</strong> A classical dance drama popular in Uttara Kannada, this theater art involves music, songs, dance, acting, dialogue, story and unique costumes. Traditionally, yakshaganas start late in the night and run the entire night. This combination of classical and folk elements makes yakshagana unique from any other Indian art form.',
+        'about_culture_cuisine': '<strong>Cuisine:</strong> Uttara Kannada is famous for a variety of seafood delicacies. Fish curry and rice is the staple diet. Popular dishes include Kotte Kadubu, Neer Dose, Patrode, Bhatkal Biryani, and various coastal preparations using coconut and local spices.',
+        'about_economy_crops': 'The chief crops of the district are rice and areca nut, along with coconut, sugarcane, cocoa, cashew, mango, banana, pepper, cardamom, and ginger. The district has a Gross Domestic District Product of 530,297 Lakh Crores with Karwar and Sirsi being major contributors.',
+        'about_economy_industries': '<strong>Major Industries:</strong> Kaiga Atomic Power Station, West Coast Paper Mill, INS Kadamba (Naval Base), and various ports including Karwar Port.',
+        'about_economy_tourism': '<strong>Tourism Highlights:</strong> Pristine beaches (Om Beach, Gokarna), waterfalls (Jog Falls, Unchalli Falls), wildlife sanctuaries (Dandeli, Anshi), historical sites (Murudeshwar Temple, Banavasi), and adventure sports opportunities.',
+        'about_admin_intro': 'Uttara Kannada district is divided into 12 taluks:',
+        'about_admin_divisions': "The district's agroclimatic divisions include the coastal plain (Karwar, Ankola, Kumta, Honnavar, Bhatkal) and Malenadu (Sirsi, Siddapur, Yellapur, Haliyal, Dandeli, Joida, Mundgod).",
+        'map_title': 'Explore via Map',
+        'map_subtitle': 'Click on pins to see details',
     },
     'kn': {
         'app_title': 'ಉತ್ತರ ಕನ್ನಡ',
@@ -88,6 +119,21 @@ const translations = {
         'filter_nature': 'ಪ್ರಕೃತಿ',
         'filter_fort': 'ಕೋಟೆಗಳು',
         'filter_island': 'ದ್ವೀಪಗಳು',
+        'filter_museum': 'ಸಂಗ್ರಹಾಲಯಗಳು',
+        'filter_bridge': 'ಸೇತುವೆಗಳು',
+        'filter_lighthouse': 'ಲೈಟ್ಹೌಸ್‌ಗಳು',
+        'filter_rock_formation': 'ಶಿಲಾ ರೂಪಗಳು',
+        'filter_backwater': 'ಹಿನ್ನೀರು',
+        'filter_lake': 'ಕೆರೆಗಳು',
+        'filter_dam': 'ಅಣೆಕಟ್ಟುಗಳು',
+        'filter_national_park': 'ರಾಷ್ಟ್ರೀಯ ಉದ್ಯಾನವನಗಳು',
+        'filter_wildlife': 'ವನ್ಯಜೀವಿ',
+        'filter_adventure': 'ಸಾಹಸ / ಜಲಕ್ರೀಡೆಗಳು',
+        'filter_caves': 'ಗುಹೆಗಳು',
+        'filter_scenic': 'ಸಂದರ್ಶನ સ્થળಗಳು',
+        'filter_monastery': 'ಮಠಗಳು',
+        'filter_cultural_village': 'ಸಾಂಸ್ಕೃತಿಕ ಗ್ರಾಮಗಳು',
+        'filter_elephant_camp': 'ಆನೆ ಶಿಬಿರಗಳು',
         'btn_view_map': 'ನಕ್ಷೆಯಲ್ಲಿ ವೀಕ್ಷಿಸಿ',
         'btn_see_more': 'ತಾಲೂಕು ವೀಕ್ಷಿಸಿ',
         'footer_text': '© {year} NammaUK',
@@ -140,6 +186,8 @@ const translations = {
         'taluk_sirsi': 'ಶಿರಸಿ',
         'taluk_yellapur': 'ಯಲ್ಲಾಪುರ',
 
+        'taluk_heading_suffix': ' - ಪ್ರವಾಸಿ ತಾಣಗಳು',
+
         // About Page Content (HTML)
         'about_overview_content': `<strong>ಜಿಲ್ಲಾ ಕೇಂದ್ರ:</strong> ಕಾರವಾರ<br>
                         <strong>ಪ್ರಮುಖ ವಾಣಿಜ್ಯ ಕೇಂದ್ರ:</strong> ಶಿರಸಿ<br>
@@ -149,6 +197,9 @@ const translations = {
                         <strong>ಜನಸಂಖ್ಯೆ:</strong> 1,437,169 (2011ರ ಜನಗಣತಿ)<br>
                         <strong>ಕರಾವಳಿ:</strong> 142 ಕಿಲೋಮೀಟರ್<br>
                         <strong>ಸಾಕ್ಷರತಾ ಪ್ರಮಾಣ:</strong> 84.06%`,
+        'about_overview_intro': 'ಉತ್ತರ ಕನ್ನಡ ಕರ್ನಾಟಕ ರಾಜ್ಯದ ಐದನೇ ದೊಡ್ಡ ಜಿಲ್ಲೆ; ಉತ್ತರಕ್ಕೆ ಗೋವಾ ಮತ್ತು ಬೆಳಗಾವಿ, ಪೂರ್ವಕ್ಕೆ ಧಾರವಾಡ ಮತ್ತು ಹಾವೇರಿ, ದಕ್ಷಿಣಕ್ಕೆ ಶಿವಮೊಗ್ಗ ಮತ್ತು ಉಡುಪಿ, ಪಶ್ಚಿಮಕ್ಕೆ ಅರೇಬಿಯನ್ ಸಮುದ್ರವನ್ನು ಹೊಂದಿದೆ.',
+        'about_demo_content': 'ಈ ಜಿಲ್ಲೆಯಲ್ಲಿ ಮುಖ್ಯವಾಗಿ ಕನ್ನಡ (≈55.34%) ಮಾತನಾಡಲಾಗುತ್ತದೆ; ಕೊಂಕಣಿ, ಉರ್ದು, ಮರಾಠಿ ಮತ್ತು ತೆಲುಗು ಸಹ ಪ್ರಮುಖ ಭಾಷೆಗಳಾಗಿವೆ. ಜನಸಂಖ್ಯೆಯು ಹೆಚ್ಚಿನದಾಗಿ ಹಿಂದೂ信仰 ಹೊಂದಿದೆ.',
+        'about_literacy_title': 'ತಾಲೂಕುಗಳ ಪ್ರಕಾರ ಸಾಕ್ಷರತೆ:',
         'about_history_p1': 'ಉತ್ತರ ಕನ್ನಡ ಜಿಲ್ಲೆಯ ಮೊದಲ ಪ್ರಸಿದ್ಧ ರಾಜವಂಶವೆಂದರೆ ಬನವಾಸಿಯ ಚುಟುಗಳು. 350 ರಿಂದ 525 ರವರೆಗೆ ಆಳಿದ ಕದಂಬ ಸಾಮ್ರಾಜ್ಯದ ತವರು ಇದಾಗಿತ್ತು. ಕದಂಬರ ನಂತರ ಚಾಲುಕ್ಯರು, ರಾಷ್ಟ್ರಕೂಟರು, ಹೊಯ್ಸಳರು ಮತ್ತು ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯಗಳು ಈ ಪ್ರದೇಶವನ್ನು ಆಳಿದವು.',
         'about_history_p2': '1750ರ ದಶಕದಲ್ಲಿ ಮರಾಠ ಸಾಮ್ರಾಜ್ಯದ ಆಳ್ವಿಕೆಗೆ ಒಳಪಟ್ಟಿತು ಮತ್ತು ನಂತರ ಮೈಸೂರು ಸಾಮ್ರಾಜ್ಯದ ಭಾಗವಾಯಿತು. 1799ರಲ್ಲಿ ಬ್ರಿಟಿಷರಿಗೆ ಹಸ್ತಾಂತರಿಸಲಾಯಿತು. ಆರಂಭದಲ್ಲಿ ಇದು ಮದ್ರಾಸ್ ಪ್ರೆಸಿಡೆನ್ಸಿಯ ಕೆನರಾ ಜಿಲ್ಲೆಯ ಭಾಗವಾಗಿತ್ತು. 1862ರಲ್ಲಿ ಬ್ರಿಟಿಷರು ಇದನ್ನು ಬಾಂಬೆ ಪ್ರೆಸಿಡೆನ್ಸಿಗೆ ವರ್ಗಾಯಿಸಿದರು.',
         'about_history_p3': '1947ರಲ್ಲಿ ಭಾರತಕ್ಕೆ ಸ್ವಾತಂತ್ರ್ಯದ ನಂತರ, 1956ರಲ್ಲಿ ಬಾಂಬೆ ರಾಜ್ಯದ ದಕ್ಷಿಣ ಭಾಗವನ್ನು ಮೈಸೂರು ರಾಜ್ಯಕ್ಕೆ ಸೇರಿಸಲಾಯಿತು, ನಂತರ 1972ರಲ್ಲಿ ಕರ್ನಾಟಕ ಎಂದು ಮರುನಾಮಕರಣ ಮಾಡಲಾಯಿತು.',
@@ -161,6 +212,16 @@ const translations = {
                         <li><strong>ದಾಂಡೇಲಿ ವನ್ಯಜೀವಿ ಧಾಮ:</strong> ಕಪ್ಪು ಚಿರತೆಗೆ ಪ್ರಸಿದ್ಧವಾದ 834 ಚದರ ಕಿ.ಮೀ ದಟ್ಟಾರಣ್ಯ.</li>
                         <li><strong>ಭೀಮಘಡ್ ವನ್ಯಜೀವಿ ಧಾಮ:</strong> ಈ ಪ್ರದೇಶಕ್ಕೆ ಸೀಮಿತವಾಗಿರುವ ರೋಟನ್ಸ್ ಫ್ರೀ-ಟೈಲ್ಡ್ ಬ್ಯಾಟ್‌ಗೆ ಹೆಸರುವಾಸಿ.</li>
                         <li><strong>ಅತ್ತಿವೇರಿ ಪಕ್ಷಿ ಧಾಮ:</strong> 22 ದೇಶಗಳಿಂದ ವಲಸೆ ಬರುವ ಪಕ್ಷಿಗಳು ಸೇರಿದಂತೆ 79 ಜಾತಿಯ ಪಕ್ಷಿಗಳಿಗೆ ನೆಲೆ.</li>`
+        ,
+        'about_culture_yakshagana': '<strong>ಯಕ್ಷಗಾನ:</strong> ಪ್ರಸಿದ್ಧ ನೃತ್ಯ-ನಾಟಕ ಪರಂಪರೆ, ಸಂಗೀತ, ನೃತ್ಯ ಮತ್ತು ಕಲಾತ್ಮಕ ವೇಶಭೂಷೆಗಳೊಂದಿಗೆ.',
+        'about_culture_cuisine': '<strong>ಆಹಾರ:</strong> ಕಡಲತೀರೀಯ ಆಹಾರಗಳು, ಮತ್ಸ್ಯ ಕರಿ ಮತ್ತು ಅಕ್ಕಿ ಪ್ರಧಾನ. ಭಟ್ಕಳ ಬಿರಿಯಾನಿ ಮತ್ತು ನೇರದೋಸೆ ಜನಪ್ರಿಯ.',
+        'about_economy_crops': 'ಪ್ರಮುಖ ಬೆಳೆಗಳು: ಅಕ್ಕಿ, ತೆಂಗಿನಕಾಯಿ, ಕೇಸು, ಮೆಣಸಿನಕಾಯಿ ಮತ್ತು ಹಲವಾರು ಹಣ್ಣುಗಳು.',
+        'about_economy_industries': '<strong>ಪ್ರಮುಖ ಉದ್ಯಮಗಳು:</strong> ಕೈಗಾ ಅಣುಶಕ್ತಿ ಕೇಂದ್ರ, ವೆಸ್ಟ್ ಕೋಸ್ಟ್ ಪೇಪರ್ ಮಿಲ್ಸ್ ಮತ್ತು ಕಾರವಾರ ಬಂದರು.',
+        'about_economy_tourism': '<strong>ಪ್ರವಾಸೋದ್ಯಮ:</strong> ಕಡಲತೀರೆಗಳು, ಜಲಪಾತಗಳು, ವನ್ಯಜೀವಿ ಧಾಮಗಳು ಮತ್ತು ಐತಿಹಾಸಿಕ ತಾಣಗಳು ಮುಖ್ಯ ಆಕರ್ಷಣೆಗಳು.',
+        'about_admin_intro': 'ಉತ್ತರ ಕನ್ನಡ ಜಿಲ್ಲೆಯನ್ನು 12 ತಾಳೂಕುಗಳಲ್ಲಿ ವಿಂಗಡಿಸಲಾಗಿದೆ:',
+        'about_admin_divisions': 'ಜಿಲ್ಲೆಯ ಕೃಷಿ/ಹವಾಮಾನ ವಿಭಾಗಗಳು: ಕರಾವಳಿ ಸಮತಲ (ಕಾರವಾರ, ಅಂಕೋಲ, ಕುಮಟಾ, ಹೊನ್ನಾವರ, ಭಟ್ಕಳ) ಮತ್ತು ಮಾಲೇನಡು (ಸಿರಸಿ, ಸಿದ್ದಾಪುರ, ಯಲ್ಲಾಪುರ, ಹಳಿಯಾಳ, ದಾಂಡೇಲಿ, ಜೋಯಿಡಾ, ಮುಂಡಗೋಡು).',
+        'map_title': 'ನಕ್ಷೆಯ ಮೂಲಕ ಅನ್ವೇಷಿಸಿ',
+        'map_subtitle': 'ವಿವರಗಳನ್ನು ನೋಡಲು ಪಿನ್ಗಳನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ',
     },
     'hi': {
         'app_title': 'उत्तर कन्नड़',
@@ -179,6 +240,21 @@ const translations = {
         'filter_nature': 'प्रकृति',
         'filter_fort': 'किले',
         'filter_island': 'द्वीप',
+        'filter_museum': 'संग्रहालय',
+        'filter_bridge': 'पुल',
+        'filter_lighthouse': 'लाइटहाउस',
+        'filter_rock_formation': 'शिलाओं की संरचना',
+        'filter_backwater': 'बैकवाटर',
+        'filter_lake': 'झीलें',
+        'filter_dam': 'बांध',
+        'filter_national_park': 'राष्ट्रीय उद्यान',
+        'filter_wildlife': 'वन्यजीव',
+        'filter_adventure': 'एडवेंचर / वाटर स्पोर्ट्स',
+        'filter_caves': 'गुफाएं',
+        'filter_scenic': 'दृश्य स्थल',
+        'filter_monastery': 'मठ',
+        'filter_cultural_village': 'सांस्कृतिक गांव',
+        'filter_elephant_camp': 'हाथी शिविर',
         'btn_view_map': 'मानचित्र पर देखें',
         'btn_see_more': 'अधिक देखें',
         'footer_text': '© {year} NammaUK',
@@ -231,6 +307,8 @@ const translations = {
         'taluk_sirsi': 'सिरसी',
         'taluk_yellapur': 'यल्लापुर',
 
+        'taluk_heading_suffix': ' - पर्यटन स्थल',
+
         // About Page Content (HTML)
         'about_overview_content': `<strong>जिला मुख्यालय:</strong> कारवार<br>
                         <strong>प्रमुख वाणिज्यिक केंद्र:</strong> सिरसी<br>
@@ -251,7 +329,9 @@ const translations = {
         'about_eco_list': `<li><strong>अंशी राष्ट्रीय उद्यान:</strong> लगभग 250 वर्ग किमी के अर्ध-सदाबहार वन को संरक्षित करता है, जो बाघ, काले तेंदुए, हाथी और सांबर का घर है।</li>
                         <li><strong>दांडेली वन्यजीव अभयारण्य:</strong> 834 वर्ग किमी के घने जंगल और बांस के जंगलों की रक्षा करता है, जो मायावी काले तेंदुए के लिए प्रसिद्ध है।</li>
                         <li><strong>भीमगढ़ वन्यजीव अभयारण्य:</strong> रोटन फ्री-टेल्ड बैट का घर, जो इस क्षेत्र के लिए स्थानिक है।</li>
-                        <li><strong>अत्तिवेरी पक्षी अभयारण्य:</strong> 22 देशों के प्रवासी पक्षियों सहित पक्षियों की 79 प्रजातियों का घर।</li>`
+                        <li><strong>अत्तिवेरी पक्षी अभयारण्य:</strong> 22 देशों के प्रवासी पक्षियों सहित पक्षियों की 79 प्रजातियों का घर।</li>`,
+        'map_title': 'मानचित्र के माध्यम से अन्वेषण करें',
+        'map_subtitle': 'विवरण देखने के लिए पिन पर क्लिक करें',
     }
 };
 

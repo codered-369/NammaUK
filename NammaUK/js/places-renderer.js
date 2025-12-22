@@ -104,6 +104,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // Refresh translations for static elements if any inside (none here)
     }
 
+    // Update page header (h1), logo and back button using translations if available
+    function updateStaticHeader() {
+        const lang = window.currentLanguage || localStorage.getItem('uk_lang') || 'en';
+        const h1 = document.querySelector('.sub-header h1');
+        const logo = document.querySelector('.logo');
+        const backBtn = document.querySelector('.back-btn');
+
+        const talukKey = ('taluk_' + talukName).toLowerCase();
+        const talukTranslated = (typeof translations !== 'undefined' && translations[lang] && translations[lang][talukKey]) ? translations[lang][talukKey] : talukName;
+        const suffix = (typeof translations !== 'undefined' && translations[lang] && translations[lang]['taluk_heading_suffix']) ? translations[lang]['taluk_heading_suffix'] : ' - Tourist Places';
+
+        if (h1) h1.innerText = talukTranslated + suffix;
+        if (logo && typeof translations !== 'undefined' && translations[lang] && translations[lang]['app_title']) logo.innerText = translations[lang]['app_title'];
+        if (backBtn && typeof translations !== 'undefined' && translations[lang] && translations[lang]['btn_back']) {
+            backBtn.innerHTML = '<i class="fa-solid fa-arrow-left"></i> ' + translations[lang]['btn_back'];
+        }
+    }
+
     // Load Data
     Promise.all([
         fetch('data/places.json?v=' + Date.now()).then(r => r.json()),
@@ -128,9 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initial Render
         render(allPlaces);
+        // Initial header update (will also be updated when translations load)
+        updateStaticHeader();
 
         // Listen for Language Change
         window.addEventListener('languageChanged', (e) => {
+            // Update header and re-render cards in new language
+            updateStaticHeader();
             render(allPlaces);
         });
 
