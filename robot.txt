@@ -1,0 +1,16 @@
+
+# /robots.txt
+User-agent: *
+Allow: /
+
+# Prevent indexing of internal or temporary paths if they exist
+Disallow: /scripts/
+Disallow: /reports/
+Disallow: /data/
+Disallow: /js/
+
+# Common non-HTML assets are allowed; if you have draft content, block it explicitly:
+# Disallow: /drafts/
+
+# Sitemap reference
+Sitemap: https://namma-uk.vercel.app/sitemap.xml
