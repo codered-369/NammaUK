@@ -1,65 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
 
+
+
+  
+<head>
+  <!-- Character set & viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Namma UK – Explore Uttara Kannada</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
-  <meta name="description"
-    content="Discover Uttara Kannada with Namma UK – your ultimate guide to beaches, waterfalls, trekking, and cultural heritage in Karnataka." />
-  <meta name="keywords"
-    content="Uttara Kannada tourism, Namma UK, Karnataka travel, Gokarna beach, Jog Falls, Murudeshwar temple, Dandeli adventure" />
 
+  <!-- Title & primary description -->
+  <title>Uttara Kannada — Explore 12 Taluks, Beaches, Waterfalls & Treks | Namma UK</title>
+  <meta name="description" content="Discover Uttara Kannada with Namma UK — the definitive guide to the 12 taluks, beaches, waterfalls, treks, temples, homestays, and itineraries across Karwar, Gokarna, Dandeli, Sirsi, Honnavar, and more." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://namma-uk.vercel.app/" />
 
-  <meta property="og:title" content="Namma UK – Explore Uttara Kannada Tourism" />
-  <meta property="og:description"
-    content="Plan your trip to Uttara Kannada with Namma UK. Explore beaches, waterfalls, trekking spots, and cultural heritage." />
+  <!-- Keywords (minor weight, but fine to include) -->
+  <meta name="keywords" content="Uttara Kannada, Uttara Kannada tourism, UK tourist places, 12 taluks of Uttara Kannada, Karwar, Gokarna, Dandeli, Sirsi, Honnavar, Kumta, Ankola, Yellapur, Siddapur, Haliyal, Supa, Mundgod, Joida, Jog Falls, Murudeshwar, beaches, waterfalls, trekking, Western Ghats" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Uttara Kannada Tourism — Explore 12 Taluks | Namma UK" />
+  <meta property="og:description" content="Plan your trip to Uttara Kannada: beaches, waterfalls, treks, temples, and local experiences across all 12 taluks." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nammauk.vercel.app/" />
-  <meta property="og:image" content="https://nammauk.vercel.app/assets/images/social-preview.jpg" />
+  <meta property="og:url" content="https://namma-uk.vercel.app/" />
+  <meta property="og:image" content="https://namma-uk.vercel.app/assets/images/social-preview.jpg" />
   <meta property="og:site_name" content="Namma UK" />
+  <meta property="og:locale" content="en_IN" />
 
-
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Namma UK – Explore Uttara Kannada Tourism" />
-  <meta name="twitter:description" content="Your ultimate guide to Uttara Kannada tourism." />
-  <meta name="twitter:image" content="https://nammauk.vercel.app/assets/images/social-preview.jpg" />
+  <meta name="twitter:title" content="Uttara Kannada Tourism — Explore 12 Taluks | Namma UK" />
+  <meta name="twitter:description" content="Your guide to Uttara Kannada’s beaches, waterfalls, treks, and culture." />
+  <meta name="twitter:image" content="https://namma-uk.vercel.app/assets/images/social-preview.jpg" />
 
-  <meta name="robots" content="index, follow" />
-
-  <!-- Theme Color (improves Lighthouse PWA score and mobile UI color) -->
+  <!-- Theme & app icons -->
   <meta name="theme-color" content="#FFD700" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://namma-uk.vercel.app/assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://namma-uk.vercel.app/assets/icons/favicon-16.png" />
+  <link rel="icon" type="image/png" href="https://namma-uk.vercel.app/assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="https://namma-uk.vercel.app/assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Structured Data -->
+  <!-- Hreflang (add more locales if multilingual pages exist) -->
+  <link rel="alternate" href="https://namma-uk.vercel.app/" hreflang="en-in" />
+  <link rel="alternate" href="https://namma-uk.vercel.app/" hreflang="x-default" />
+
+  <!-- Preconnects to speed up critical CDNs -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Optional: preload hero image/font for LCP -->
+  <link rel="preload" as="image" href="https://namma-uk.vercel.app/assets/images/hero-lcp.jpg" imagesrcset="https://namma-uk.vercel.app/assets/images/hero-lcp.jpg 1200w" imagesizes="(max-width: 1200px) 100vw, 1200px" />
+  <!-- Example font (uncomment if you use a Google Font)
+  <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v25/XRXV3I6Li01BKofIMKeZ9vUz.woff2" as="font" type="font/woff2" crossorigin />
+  -->
+
+  <!-- CSS & Scripts (keep CSS early, JS deferred) -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin defer></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Sitemap & feed -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://namma-uk.vercel.app/sitemap.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Namma UK Blog" href="https://namma-uk.vercel.app/feed.xml" />
+
+  <!-- Structured Data: WebSite with SearchAction (helps sitelinks search box) -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Namma UK",
-  "url": "https://nammauk.vercel.app/",
-  "description": "Discover Uttara Kannada with Namma UK – your ultimate guide to beaches, waterfalls, trekking, and cultural heritage in Karnataka.",
-  "publisher": {
-    "@type": "Organization",
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
     "name": "Namma UK",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://nammauk.vercel.app/assets/icons/favicon.png"
+    "url": "https://namma-uk.vercel.app/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://namma-uk.vercel.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Namma UK",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://namma-uk.vercel.app/assets/icons/favicon.png"
+      }
     }
   }
-}
-</script>
+  </script>
 
+  <!-- Structured Data: TouristDestination for Uttara Kannada -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    "name": "Uttara Kannada",
+    "description": "Explore beaches, waterfalls, treks, temples, homestays and eco-tourism across the 12 taluks of Uttara Kannada.",
+    "url": "https://namma-uk.vercel.app/",
+    "touristType": ["Nature", "Adventure", "Cultural"],
+    "image": "https://namma-uk.vercel.app/assets/images/social-preview.jpg",
+    "geo": { "@type": "GeoCoordinates", "latitude": 14.8, "longitude": 74.1 },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Karnataka",
+      "address": { "@type": "PostalAddress", "addressCountry": "IN" }
+    }
+  }
+  </script>
 
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://namma-uk.vercel.app/"},
+      {"@type":"ListItem","position":2,"name":"Destinations","item":"https://namma-uk.vercel.app/taluks.html/"},
+      {"@type":"ListItem","position":3,"name":"Gokarna"}
+    ]
+  }
+  </script>
 </head>
+
 
 <body class="bg-gray-50 text-slate-900">
   <header class="header">
@@ -692,6 +759,7 @@
 </body>
 
 </html>
+
 
 
 
