@@ -1,0 +1,23 @@
+
+<!-- /sitemap.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
+  <url><loc>https://namma-uk.vercel.app/index.html</loc><lastmod>2025-12-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://namma-uk.vercel.app/about.html</loc><lastmod>2025-12-23</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://namma-uk.vercel.app/taluks.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Taluk pages (individual) -->
+  <url><loc>https://namma-uk.vercel.app/karwar.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://namma-uk.vercel.app/ankola.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://namma-uk.vercel.app/kumta.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://namma-uk.vercel.app/honnavar.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://namma-uk.vercel.app/bhatkal.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://namma-uk.vercel.app/sirsi.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://namma-uk.vercel.app/siddapur.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://namma-uk.vercel.app/yellapur.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://namma-uk.vercel.app/mundgod.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://namma-uk.vercel.app/haliyal.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://namma-uk.vercel.app/joida.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://namma-uk.vercel.app/dandeli.html</loc><lastmod>2025-12-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
