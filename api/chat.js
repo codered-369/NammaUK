@@ -40,10 +40,10 @@ export default async function handler(req, res) {
     if (!text || !text.trim()) return res.status(400).json({ error: 'Missing text in body' });
     if (!process.env.GEMINI_API_KEY) return res.status(500).json({ error: 'GEMINI_API_KEY not set' });
 
-    const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+    const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent';
     const body = {
       contents: [{ role: 'user', parts: [{ text }]}],
-      generationConfig: { temperature: 0.7, maxOutputTokens: 768 }
+      generationConfig: { temperature: 0.7, maxOutputTokens: 512 }
     };
 
     const r = await fetch(url, {
@@ -81,3 +81,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server error', message: e.message });
   }
 }
+
