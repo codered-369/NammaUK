@@ -248,122 +248,146 @@
   <script src="js/translations.js"></script>
 
 
-<!-- index.html: minimal chat widget; place near </body> -->
-                      <!-- <style>
-                      #chat-btn{position:fixed;right:20px;bottom:20px;background:#111;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-                      #chat-box{position:fixed;right:20px;bottom:88px;width:320px;max-height:60vh;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden;font:14px system-ui}
-                      #chat-header{padding:10px;background:#f5f5f5;border-bottom:1px solid #eee;font-weight:600}
-                      #chat-messages{padding:10px;overflow:auto}
-                      .msg{margin:6px 0;padding:8px 10px;border-radius:8px}
-                      .user{background:#e8f0fe;margin-left:auto;max-width:80%}
-                      .bot{background:#f6f6f6;margin-right:auto;max-width:80%}
-                      #chat-input{display:flex;border-top:1px solid #eee}
-                      #chat-input input{flex:1;padding:10px;border:0}
-                      #chat-input button{padding:0 14px;border:0;background:#111;color:#fff}
-                      </style>
+  <style>
+                          /* Your base styles (kept) */
+                          #chat-btn{position:fixed;right:20px;bottom:50px;background:#32b0eb;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+                          #chat-box{position:fixed;right:20px;bottom:108px;width:320px;max-height:60vh;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden;font:14px system-ui}
+                          #chat-header{padding:10px;background:#f5f5f5;border-bottom:1px solid #eee;font-weight:600}
+                          #chat-messages{padding:10px;overflow:auto}
+                          .msg{margin:6px 0;padding:8px 10px;border-radius:8px}
+                          .user{background:#e8f0fe;margin-left:auto;max-width:80%}
+                          .bot{background:#f6f6f6;margin-right:auto;max-width:80%}
+                          #chat-input{display:flex;border-top:1px solid #eee}
+                          #chat-input input{flex:1;padding:10px;border:0}
+                          #chat-input button{padding:0 14px;border:0;background:#111;color:#fff}
 
-                      <div id="chat-btn">💬</div>
-                      <div id="chat-box">
-                        <div id="chat-header">Assistant</div>
-                        <div id="chat-messages"></div>
-                        <div id="chat-input">
-                          <input id="chat-text" placeholder="Type a message…" />
-                          <button id="send">Send</button>
+                          /* --- Robotic button upgrades --- */
+                          #chat-btn{
+                            border:none; box-shadow:0 8px 24px rgba(0,0,0,.35);
+                            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+                            position:fixed; /* re-affirm for ::after ring positioning */
+                          }
+                          #chat-btn:hover{ transform: translateY(-2px); box-shadow:0 12px 32px rgba(0, 0, 0, 0.45); background:#151515; }
+                          #chat-btn:active{ transform: translateY(0); box-shadow:0 6px 18px rgba(95, 45, 45, 0.35); }
+                          #chat-btn:focus-visible{ outline:3px solid #22d3ee; outline-offset:4px; }
+
+                          /* Glow ring on hover */
+                          #chat-btn::after{
+                            content:""; position:absolute; inset:-6px; border-radius:50%;
+                            background: radial-gradient(60% 60% at 50% 50%, rgba(255, 255, 255, 0.901), transparent 60%);
+                            filter: blur(10px); opacity:0; transition: opacity .25s ease;
+                          }
+                          #chat-btn:hover::after{ opacity:1; }
+
+                          /* Robot SVG styling */
+                          .robo { filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); animation: float 3.5s ease-in-out infinite; }
+                          .robo-body{ fill:#1f2937; }
+                          .robo-head{ fill:#0f172a; }
+                          .robo-antenna, .robo-mouth{ stroke:#94a3b8; fill:#94a3b8; stroke-width:2; }
+                          .robo-antenna-tip{ fill:#22d3ee; animation: pulse 2.2s ease-in-out infinite; }
+                          .robo-eye{ fill:#22d3ee; }
+                          .robo-arm, .robo-hand{ fill:#374151; }
+                          .robo-shadow{ fill: rgba(0,0,0,.25); }
+                          .robo-arm-wave{ animation: wave 1.6s ease-in-out infinite; transform-origin: 53px 28px; }
+                          .left-eye, .right-eye { transform-origin: center; animation: blink 5s infinite; }
+                          #chat-btn:hover .robo-eye { fill:#67e8f9; }
+
+                          /* Keyframes */
+                          @keyframes float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-2px);} }
+                          @keyframes wave { 0%,100%{ transform: rotate(0deg);} 25%{ transform: rotate(-18deg);} 50%{ transform: rotate(12deg);} 75%{ transform: rotate(-10deg);} }
+                          @keyframes blink { 0%,92%,100%{ transform: scaleY(1);} 95%{ transform: scaleY(0.15);} }
+                          @keyframes pulse { 0%,100%{ transform: scale(1); opacity:1;} 50%{ transform: scale(1.25); opacity:.7;} }
+                        </style>
+
+                        <!-- Button: replaced 💬 with SVG robo -->
+                        <div id="chat-btn" aria-label="Open chat" title="Chat">
+                          <svg class="robo" width="40" height="40" viewBox="0 0 64 64" role="img" aria-hidden="true">
+                            <!-- Body -->
+                            <rect x="14" y="22" rx="6" ry="6" width="36" height="28" class="robo-body"/>
+                            <!-- Head -->
+                            <rect x="18" y="8" rx="6" ry="6" width="28" height="18" class="robo-head"/>
+                            <!-- Antenna -->
+                            <line x1="32" y1="8" x2="32" y2="4" class="robo-antenna"/>
+                            <circle cx="32" cy="3" r="2" class="robo-antenna-tip"/>
+                            <!-- Eyes -->
+                            <circle cx="26" cy="17" r="3" class="robo-eye left-eye"/>
+                            <circle cx="38" cy="17" r="3" class="robo-eye right-eye"/>
+                            <!-- Mouth -->
+                            <rect x="26" y="20" width="12" height="2" rx="1" class="robo-mouth"/>
+                            <!-- Left Arm (static) -->
+                            <rect x="8" y="28" width="6" height="16" rx="3" class="robo-arm"/>
+                            <!-- Right Arm (waving) -->
+                            <g class="robo-arm-wave" transform-origin="53px 28px">
+                              <rect x="50" y="28" width="6" height="16" rx="3" class="robo-arm"/>
+                              <circle cx="53" cy="46" r="3" class="robo-hand"/>
+                            </g>
+                            <!-- Shadow -->
+                            <ellipse cx="32" cy="56" rx="16" ry="4" class="robo-shadow"/>
+                          </svg>
                         </div>
-                      </div>
 
-                      <script>
-                      const btn=document.getElementById('chat-btn'),box=document.getElementById('chat-box'),msgs=document.getElementById('chat-messages'),input=document.getElementById('chat-text'),send=document.getElementById('send');
-                      btn.onclick=()=>box.style.display=(box.style.display==='none'||box.style.display==='')?'flex':'none';
-                      function add(type,text){const d=document.createElement('div');d.className=`msg ${type}`;d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
-                      async function ask(text){
-                        add('user',text); add('bot','…');
-                        const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
-                        const {text:reply}=await r.json(); msgs.querySelector('.bot:last-child').textContent=reply||'No reply';
-                      }
-                      send.onclick=()=>{const t=input.value.trim(); if(!t) return; input.value=''; ask(t);};
-                      input.addEventListener('keydown',e=>{if(e.key==='Enter') send.click();});
-                      </script> -->
+                        <!-- Your chat box: unchanged -->
+                        <div id="chat-box">
+                          <div id="chat-header">Travel Assistant</div>
+                          <div id="chat-messages"></div>
+                          <div id="chat-input">
+                            <input id="chat-text" placeholder="Ask questions.." />
+                            <button id="send">Send</button>
+                          </div>
+                        </div>
 
-
-
- 
-
-<style>
-  #chat-btn{position:fixed;right:20px;bottom:20px;background:#111;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:9999}
-  #chat-box{position:fixed;right:20px;bottom:88px;width:320px;max-height:60vh;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden;font:14px system-ui;z-index:9999}
-  #chat-header{padding:10px;background:#f5f5f5;border-bottom:1px solid #eee;font-weight:600}
-  #chat-messages{padding:10px;overflow:auto}
-  .msg{margin:6px 0;padding:8px 10px;border-radius:8px;white-space:pre-wrap}
-  .user{background:#e8f0fe;margin-left:auto;max-width:80%}
-  .bot{background:#f6f6f6;margin-right:auto;max-width:80%}
-  #chat-input{display:flex;border-top:1px solid #eee}
-  #chat-input input{flex:1;padding:10px;border:0}
-  #chat-input button{padding:0 14px;border:0;background:#111;color:#fff}
-</style>
-
-<div id="chat-btn" aria-label="Open chat" title="Chat">💬</div>
-<div id="chat-box" role="dialog" aria-label="Assistant">
-  <div id="chat-header">Assistant</div>
-  <div id="chat-messages"></div>
-  <div id="chat-input">
-    <input id="chat-text" placeholder="Type a message…" aria-label="Message input" />
-    <button id="send">Send</button>
-  </div>
-</div>
-
-<!-- Paste this script just before </body> -->
-<script>
-const btn = document.getElementById('chat-btn'),
-      box = document.getElementById('chat-box'),
-      msgs = document.getElementById('chat-messages'),
-      input = document.getElementById('chat-text'),
-      send = document.getElementById('send');
-
-btn.onclick = () => box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'flex' : 'none';
-
-function add(type, text){
-  const d = document.createElement('div');
-  d.className = `msg ${type}`;
-  d.textContent = text;
-  msgs.appendChild(d);
-  msgs.scrollTop = msgs.scrollHeight;
-  return d;
-}
-
-async function ask(text){
-  const typing = add('bot', '…');
-  send.disabled = true;
-  try {
-    const r = await fetch('/api/chat', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ text })
-    });
-    const data = await r.json().catch(() => ({ error: 'Invalid JSON' }));
-    if (!r.ok) {
-      typing.textContent = `Error ${r.status}: ${data.error || 'Unknown'}`;
-      console.debug('Details:', data.details || data.preview || '');
-      return;
-    }
-    typing.textContent = data.text || `No reply (${data.finishReason || 'unknown'})`;
-  } catch (err) {
-    typing.textContent = `Network error: ${err.message}`;
-  } finally {
-    send.disabled = false;
-  }
-}
-
-send.onclick = () => {
-  const t = input.value.trim();
-  if (!t) return;
-  add('user', t);
-  input.value = '';
-  ask(t);
-};
-
-input.addEventListener('keydown', e => { if (e.key === 'Enter') send.click(); });
-</script>
+                       <!-- Paste this script just before </body> -->
+                       <script>
+                       const btn = document.getElementById('chat-btn'),
+                             box = document.getElementById('chat-box'),
+                             msgs = document.getElementById('chat-messages'),
+                             input = document.getElementById('chat-text'),
+                             send = document.getElementById('send');
+                       
+                       btn.onclick = () => box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'flex' : 'none';
+                       
+                       function add(type, text){
+                         const d = document.createElement('div');
+                         d.className = `msg ${type}`;
+                         d.textContent = text;
+                         msgs.appendChild(d);
+                         msgs.scrollTop = msgs.scrollHeight;
+                         return d;
+                       }
+                       
+                       async function ask(text){
+                         const typing = add('bot', '…');
+                         send.disabled = true;
+                         try {
+                           const r = await fetch('/api/chat', {
+                             method:'POST',
+                             headers:{'Content-Type':'application/json'},
+                             body: JSON.stringify({ text })
+                           });
+                           const data = await r.json().catch(() => ({ error: 'Invalid JSON' }));
+                           if (!r.ok) {
+                             typing.textContent = `Error ${r.status}: ${data.error || 'Unknown'}`;
+                             console.debug('Details:', data.details || data.preview || '');
+                             return;
+                           }
+                           typing.textContent = data.text || `No reply (${data.finishReason || 'unknown'})`;
+                         } catch (err) {
+                           typing.textContent = `Network error: ${err.message}`;
+                         } finally {
+                           send.disabled = false;
+                         }
+                       }
+                       
+                       send.onclick = () => {
+                         const t = input.value.trim();
+                         if (!t) return;
+                         add('user', t);
+                         input.value = '';
+                         ask(t);
+                       };
+                       
+                       input.addEventListener('keydown', e => { if (e.key === 'Enter') send.click(); });
+                       </script>
 
 
 
@@ -825,6 +849,7 @@ input.addEventListener('keydown', e => { if (e.key === 'Enter') send.click(); })
 </body>
 
 </html>
+
 
 
 
