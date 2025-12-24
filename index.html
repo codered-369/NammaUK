@@ -249,7 +249,7 @@
 
 
 <!-- index.html: minimal chat widget; place near </body> -->
-                      <style>
+                      <!-- <style>
                       #chat-btn{position:fixed;right:20px;bottom:20px;background:#111;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;cursor:pointer}
                       #chat-box{position:fixed;right:20px;bottom:88px;width:320px;max-height:60vh;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden;font:14px system-ui}
                       #chat-header{padding:10px;background:#f5f5f5;border-bottom:1px solid #eee;font-weight:600}
@@ -283,7 +283,88 @@
                       }
                       send.onclick=()=>{const t=input.value.trim(); if(!t) return; input.value=''; ask(t);};
                       input.addEventListener('keydown',e=>{if(e.key==='Enter') send.click();});
-                      </script>
+                      </script> -->
+
+
+
+ 
+
+<style>
+  #chat-btn{position:fixed;right:20px;bottom:20px;background:#111;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:9999}
+  #chat-box{position:fixed;right:20px;bottom:88px;width:320px;max-height:60vh;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden;font:14px system-ui;z-index:9999}
+  #chat-header{padding:10px;background:#f5f5f5;border-bottom:1px solid #eee;font-weight:600}
+  #chat-messages{padding:10px;overflow:auto}
+  .msg{margin:6px 0;padding:8px 10px;border-radius:8px;white-space:pre-wrap}
+  .user{background:#e8f0fe;margin-left:auto;max-width:80%}
+  .bot{background:#f6f6f6;margin-right:auto;max-width:80%}
+  #chat-input{display:flex;border-top:1px solid #eee}
+  #chat-input input{flex:1;padding:10px;border:0}
+  #chat-input button{padding:0 14px;border:0;background:#111;color:#fff}
+</style>
+
+<div id="chat-btn" aria-label="Open chat" title="Chat">💬</div>
+<div id="chat-box" role="dialog" aria-label="Assistant">
+  <div id="chat-header">Assistant</div>
+  <div id="chat-messages"></div>
+  <div id="chat-input">
+    <input id="chat-text" placeholder="Type a message…" aria-label="Message input" />
+    <button id="send">Send</button>
+  </div>
+</div>
+
+<!-- Paste this script just before </body> -->
+<script>
+const btn = document.getElementById('chat-btn'),
+      box = document.getElementById('chat-box'),
+      msgs = document.getElementById('chat-messages'),
+      input = document.getElementById('chat-text'),
+      send = document.getElementById('send');
+
+btn.onclick = () => box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'flex' : 'none';
+
+function add(type, text){
+  const d = document.createElement('div');
+  d.className = `msg ${type}`;
+  d.textContent = text;
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+  return d;
+}
+
+async function ask(text){
+  const typing = add('bot', '…');
+  send.disabled = true;
+  try {
+    const r = await fetch('/api/chat', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ text })
+    });
+    const data = await r.json().catch(() => ({ error: 'Invalid JSON' }));
+    if (!r.ok) {
+      typing.textContent = `Error ${r.status}: ${data.error || 'Unknown'}`;
+      console.debug('Details:', data.details || data.preview || '');
+      return;
+    }
+    typing.textContent = data.text || `No reply (${data.finishReason || 'unknown'})`;
+  } catch (err) {
+    typing.textContent = `Network error: ${err.message}`;
+  } finally {
+    send.disabled = false;
+  }
+}
+
+send.onclick = () => {
+  const t = input.value.trim();
+  if (!t) return;
+  add('user', t);
+  input.value = '';
+  ask(t);
+};
+
+input.addEventListener('keydown', e => { if (e.key === 'Enter') send.click(); });
+</script>
+
 
 
 
@@ -744,6 +825,7 @@
 </body>
 
 </html>
+
 
 
 
