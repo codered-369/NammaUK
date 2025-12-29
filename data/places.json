@@ -530,8 +530,8 @@
       "description": "Ancient temple known for its spiritual significance and architectural beauty.",
       "description_kn": "ಆಧ್ಯಾತ್ಮಿಕ ಮಹತ್ವ ಮತ್ತು ವಾಸ್ತುಶಿಲ್ಪದ ಸೌಂದರ್ಯಕ್ಕೆ ಹೆಸರುವಾಸಿಯಾದ ಪ್ರಾಚೀನ ದೇವಾಲಯ.",
       "description_hi": "प्राचीन मंदिर जो अपने आध्यात्मिक महत्व और स्थापत्य सौंदर्य के लिए जाना जाता है।",
-      "lat": 14.6027,
-      "lng": 74.3052,
+      "lat": 14.571240,
+      "lng": 74.667698,
       "maps_url": "https://www.google.com/maps/search/Shri+Kshetra+Manjuguni",
       "image": "shri_kshetra_manjuguni"
     },
@@ -852,4 +852,5 @@
       "image": "anshi_national_park"
     }
   ]
+
 }
