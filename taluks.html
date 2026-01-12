@@ -13,25 +13,33 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glass-nav.css">
 </head>
 
 <body class="bg-gray-50">
-  <header class="header">
-    <div class="container nav">
-      <img src="assets/icons/favicon.png" height="50px" width="50px">
-      <a href="index.html" class="logo text-xl font-bold" data-i18n="app_title">Uttara Kannada</a>
-      <div class="flex items-center gap-2">
-        <button onclick="history.back()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> <span
+  <header class="header glass-header">
+    <div class="container nav glass-pill">
+      <div class="logo-wrapper">
+        <img src="assets/icons/favicon.png" height="36px" width="36px" alt="Namma UK Logo">
+        <a href="index.html" class="logo text-lg font-bold text-white tracking-wide" data-i18n="app_title">Uttara
+          Kannada</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <button onclick="history.back()" class="glass-back-btn"><i class="fa-solid fa-arrow-left"></i> <span
             data-i18n="btn_back">Back</span></button>
-        <nav class="nav-links hidden md:flex"><a href="index.html" class="px-3" data-i18n="btn_home">Home</a><a
-            href="about.html" class="px-3" data-i18n="nav_about">About</a></nav>
+        <nav class="nav-links hidden md:flex gap-2">
+          <a href="index.html" class="glass-back-btn" style="border:none; background:transparent;"
+            data-i18n="btn_home">Home</a>
+          <a href="about.html" class="glass-back-btn" style="border:none; background:transparent;"
+            data-i18n="nav_about">About</a>
+        </nav>
       </div>
     </div>
   </header>
 
   <main>
     <section class="sub-header" data-aos="fade-down"
-      style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #14b8a6 100%); padding: 3rem 0; color: white;">
+      style="background: linear-gradient(135deg, #115e59 0%, #0d9488 50%, #14b8a6 100%); padding-top: 10rem; padding-bottom: 4rem; color: white;">
       <div class="container">
         <h1 style="color: white; font-size: 2.5rem; font-weight: 800; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);"
           data-i18n="taluks_title">
@@ -49,11 +57,15 @@
             <label for="search" class="sr-only">Search taluk or place</label>
             <div style="flex:1;display:flex;align-items:center;gap:8px;">
               <i class="fa-solid fa-magnifying-glass" style="color:rgba(15,23,42,0.35)"></i>
-              <input id="search" placeholder="Search taluk or place" class="search-input" 
+              <input id="search" placeholder="Search taluk or place" class="search-input"
                 data-i18n="search_placeholder" />
             </div>
-            <button id="useLocationBtn" class="btn" title="Use my location" style="white-space:nowrap;background:#fff;color:#0891b2;border:1px solid #e6eef8"><i class="fa-solid fa-location-crosshairs"></i>&nbsp;<span>Use my location</span></button>
-            <button id="manualLocationBtn" class="btn" title="Enter location manually" style="white-space:nowrap;background:#fff;color:#111;border:1px solid #e6eef8"><i class="fa-solid fa-keyboard"></i>&nbsp;<span>Enter location</span></button>
+            <button id="useLocationBtn" class="btn" title="Use my location"
+              style="white-space:nowrap;background:#fff;color:#0891b2;border:1px solid #e6eef8"><i
+                class="fa-solid fa-location-crosshairs"></i>&nbsp;<span>Use my location</span></button>
+            <button id="manualLocationBtn" class="btn" title="Enter location manually"
+              style="white-space:nowrap;background:#fff;color:#111;border:1px solid #e6eef8"><i
+                class="fa-solid fa-keyboard"></i>&nbsp;<span>Enter location</span></button>
             <div style="display:flex;align-items:center;gap:8px">
               <label class="small" style="margin-right:6px">Trip:</label>
               <select id="tripDays" class="lang-dropdown" style="min-width:84px;padding:6px 10px">
@@ -62,28 +74,36 @@
                 <option value="3">3 day</option>
               </select>
             </div>
-            <div id="planTripQuick" class="small" style="cursor:pointer;font-weight:700;color:#075985;display:flex;align-items:center;gap:8px"><i class="fa-solid fa-calendar-days"></i><span>Plan trip</span></div>
+            <div id="planTripQuick" class="small"
+              style="cursor:pointer;font-weight:700;color:#075985;display:flex;align-items:center;gap:8px"><i
+                class="fa-solid fa-calendar-days"></i><span>Plan trip</span></div>
           </div>
         </div>
         <div id="manualLocationPanel" class="manual-panel hidden" style="margin-top:10px">
           <div style="display:flex;gap:8px;align-items:center">
-            <input id="manualLocationInput" placeholder="Enter taluk/place or lat,lng (e.g. 14.61,74.55)" class="search-input" />
-            <button id="manualLocateBtn" class="btn" style="white-space:nowrap;background:#06b6d4;color:#fff"><i class="fa-solid fa-location-dot"></i>&nbsp;<span>Locate nearby</span></button>
-            <button id="manualCancelBtn" class="btn" style="white-space:nowrap;background:#fff;color:#111;border:1px solid #e6eef8">Cancel</button>
+            <input id="manualLocationInput" placeholder="Enter taluk/place or lat,lng (e.g. 14.61,74.55)"
+              class="search-input" />
+            <button id="manualLocateBtn" class="btn" style="white-space:nowrap;background:#06b6d4;color:#fff"><i
+                class="fa-solid fa-location-dot"></i>&nbsp;<span>Locate nearby</span></button>
+            <button id="manualCancelBtn" class="btn"
+              style="white-space:nowrap;background:#fff;color:#111;border:1px solid #e6eef8">Cancel</button>
           </div>
           <div id="manualLocateMsg" class="small" style="margin-top:8px;color:#b91c1c;display:none"></div>
         </div>
-        
+
         <!-- Trip planner modal -->
         <div id="tripModal" class="modal hidden" aria-hidden="true">
           <div id="tripBackdrop" class="modal-backdrop"></div>
           <div class="modal-content container">
-            <button id="tripClose" class="btn" style="position:absolute;right:14px;top:14px;z-index:3000;border-radius:999px;padding:8px;background:#fff;color:#111"><i class="fa-solid fa-xmark"></i></button>
+            <button id="tripClose" class="btn"
+              style="position:absolute;right:14px;top:14px;z-index:3000;border-radius:999px;padding:8px;background:#fff;color:#111"><i
+                class="fa-solid fa-xmark"></i></button>
             <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px">
               <div class="small">Planned trip</div>
               <div id="tripSummary" class="small text-muted" style="margin-left:6px"></div>
               <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-                <button id="tripExitBtn" class="btn" style="background:#fff;color:#111;border:1px solid #e6eef8;padding:8px 12px">Exit map</button>
+                <button id="tripExitBtn" class="btn"
+                  style="background:#fff;color:#111;border:1px solid #e6eef8;padding:8px 12px">Exit map</button>
               </div>
             </div>
             <div class="modal-scroll-area">
@@ -91,7 +111,8 @@
               <div id="trip-list" style="padding:10px 0;max-height:220px;overflow:auto"></div>
             </div>
             <div style="display:flex;justify-content:flex-end;margin-top:8px">
-              <button id="openGMapsBtn" class="btn" style="background:linear-gradient(135deg,#1a73e8,#1967d2);border:none">Go to map</button>
+              <button id="openGMapsBtn" class="btn"
+                style="background:linear-gradient(135deg,#1a73e8,#1967d2);border:none">Go to map</button>
             </div>
           </div>
         </div>
@@ -112,12 +133,16 @@
   <div id="nearbyModal" class="modal hidden" aria-hidden="true">
     <div id="nearbyBackdrop" class="modal-backdrop"></div>
     <div class="modal-content container">
-      <button id="nearbyClose"  class="btn" type="button" style="position:absolute;right:14px;top:14px;border-radius:999px;padding:8px;background:#fff;color:#111"><i class="fa-solid fa-xmark"></i></button>
+      <button id="nearbyClose" class="btn" type="button"
+        style="position:absolute;right:14px;top:14px;border-radius:999px;padding:8px;background:#fff;color:#111"><i
+          class="fa-solid fa-xmark"></i></button>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
         <h3 style="margin:0">Nearby places</h3>
         <div id="nearbyCount" class="small text-muted"></div>
         <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-          <button id="nearbyPlanBtn" class="btn" style="background:linear-gradient(135deg,#0891b2,#06b6d4);color:#fff;padding:8px 12px;border-radius:10px;border:none">Plan trip</button>
+          <button id="nearbyPlanBtn" class="btn"
+            style="background:linear-gradient(135deg,#0891b2,#06b6d4);color:#fff;padding:8px 12px;border-radius:10px;border:none">Plan
+            trip</button>
         </div>
       </div>
       <!-- <div id="nearby-map" style="width:100%;height:70vh;border-radius:12px;overflow:hidden"></div> -->
@@ -258,7 +283,7 @@
 
         // Close helpers
         function closeNearby() {
-          
+
           const modalEl = document.getElementById('nearbyModal');
           modalEl.classList.add('hidden');
           if (nearbyMap) { nearbyMap.remove(); nearbyMap = null; }
@@ -318,7 +343,7 @@
             const p = n.place;
             // add marker only if we have coordinates for the place
             if (p.lat !== undefined && p.lng !== undefined && p.lat !== null && p.lng !== null) {
-              L.marker([p.lat, p.lng]).bindPopup(`<strong>${p.name}</strong><div class='small'>${p.taluk} • ${p.type || ''} • ${n.dist===Infinity?'-':n.dist.toFixed(1) + ' km'}</div>`).addTo(nearbyLayer);
+              L.marker([p.lat, p.lng]).bindPopup(`<strong>${p.name}</strong><div class='small'>${p.taluk} • ${p.type || ''} • ${n.dist === Infinity ? '-' : n.dist.toFixed(1) + ' km'}</div>`).addTo(nearbyLayer);
               latlngs.push([p.lat, p.lng]);
             }
           });
@@ -344,7 +369,7 @@
           list.innerHTML = nearby.map((n, i) => `
             <div style="padding:10px;border-bottom:1px solid #f1f5f9">
               <strong>${n.place.name}</strong>
-              <div class="small">${n.place.taluk} • ${n.place.type || ''} • ${n.dist===Infinity?'-':n.dist.toFixed(1) + ' km'}</div>
+              <div class="small">${n.place.taluk} • ${n.place.type || ''} • ${n.dist === Infinity ? '-' : n.dist.toFixed(1) + ' km'}</div>
             </div>
           `).join('');
           // record modal's start location and taluk so the Plan button can reuse it
@@ -596,7 +621,7 @@
                     const icon = makeNumberedIcon(route.indexOf(p) + 1);
                     L.marker([p.lat, p.lng], { icon }).addTo(layer).bindPopup(`<strong>${p.name}</strong><div class='small'>${p.taluk} • ${p.type || ''}</div>`);
                     // rebuild polyline from available coordinates
-                    try { if (poly) tripMap.removeLayer(poly); } catch (e) {}
+                    try { if (poly) tripMap.removeLayer(poly); } catch (e) { }
                     const newLatlngs = [[startLatLng.lat, startLatLng.lng]];
                     route.forEach(pp => { if (pp.lat !== undefined && pp.lng !== undefined) newLatlngs.push([pp.lat, pp.lng]); });
                     if (newLatlngs.length > 1) {
@@ -633,14 +658,14 @@
           }
           list.innerHTML = grouped.map((dayArr, di) => `
             <div style="padding:8px;border-bottom:1px solid #f1f5f9">
-              <strong>Day ${di+1}</strong>
+              <strong>Day ${di + 1}</strong>
               <div style="margin-top:6px">
-                ${dayArr.map((p, pi) => `<div class="small">${(di*perDay+pi+1)}. ${p.name} • ${p.taluk}</div>`).join('')}
+                ${dayArr.map((p, pi) => `<div class="small">${(di * perDay + pi + 1)}. ${p.name} • ${p.taluk}</div>`).join('')}
               </div>
             </div>
           `).join('');
 
-          document.getElementById('tripSummary').textContent = `${route.length} stops • ${dayCount} day${dayCount>1?'s':''}`;
+          document.getElementById('tripSummary').textContent = `${route.length} stops • ${dayCount} day${dayCount > 1 ? 's' : ''}`;
 
           // close handlers
           function closeTrip() { tripMap.remove(); modal.classList.add('hidden'); document.removeEventListener('keydown', tripEsc); tripCloseFn = null; }
@@ -680,7 +705,7 @@
             const res = await fetch(url);
             const data = await res.json();
             if (data && data[0]) {
-                planTripFrom({ lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) }, dayCount);
+              planTripFrom({ lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) }, dayCount);
               return;
             }
             alert('Could not resolve start location for trip. Try a taluk name, place name, or lat,lng.');
@@ -779,12 +804,11 @@
       })
       .catch(e => console.error(e));
   </script>
-    <script>
+  <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-    <script src="js/dev.js"></script>
+  <script src="js/dev.js"></script>
 </body>
 
 </html>
-

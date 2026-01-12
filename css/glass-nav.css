@@ -1,0 +1,154 @@
+/* --- Glassmorphism Navigation --- */
+
+/* Make header overlay the content */
+.glass-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    padding-top: 20px;
+    background: transparent;
+    /* Remove default background if any */
+}
+
+/* The Pill Container */
+.glass-pill {
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+
+    /* Shape & Layout */
+    border-radius: 12px;
+    /* Square-ish shape */
+    padding: 10px 24px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    /* Adjust based on container preference */
+
+    /* Flex alignments */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo Wrapper */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-wrapper img {
+    border-radius: 50%;
+}
+
+/* Ensure logo text is white and clean */
+.glass-pill .logo {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Initial nav link styles for glass header */
+.glass-pill .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.glass-pill .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Hamburger color override */
+.glass-pill #hamburger i {
+    color: #fff !important;
+    font-size: 1.5rem;
+}
+
+/* Glass Back Button */
+.glass-back-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 8px 18px;
+    border-radius: 8px;
+    /* Matching the square-ish navbar */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.glass-back-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(-3px);
+    color: #fff;
+}
+
+/* Mobile Menu Glass Style */
+.glass-mobile-menu {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 1200px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    color: white;
+}
+
+.glass-mobile-menu a {
+    color: white;
+    font-weight: 500;
+    transition: background 0.3s;
+    padding-left: 12px;
+    border-radius: 8px;
+}
+
+.glass-mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-mobile-menu select {
+    background: rgba(255, 255, 255, 0.1);
+    color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+/* Ensure Hamburger shows on desktop if that's the design (User requested specifically "like this" image) */
+/* The HTML change removed md:hidden, but we need to ensure flex behavior is correct */
+@media (min-width: 768px) {
+
+    /* If both links and hamburger are present, spacing */
+    .glass-pill #hamburger {
+        margin-left: 20px;
+        display: inline-flex;
+        /* Keep it visible if we want the "menu" option always available */
+    }
+}
+
+/* Adjust dropdown for glass */
+.option-black option {
+    color: #000;
+    background: #fff;
+}

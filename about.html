@@ -10,31 +10,36 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/glass-nav.css" />
 </head>
 
 <body class="bg-gray-50">
-    <header class="header">
-        <div class="container nav">
-            <img src="assets/icons/favicon.png" height="50px" width="50px" />
-            <a href="index.html" class="logo text-xl font-bold" data-i18n="app_title">Uttara Kannada</a>
-            <div class="flex items-center gap-2">
-                <button onclick="history.back()" class="back-btn">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span data-i18n="btn_back">Back</span>
-                </button>
-                <nav class="nav-links hidden md:flex">
-                    <a href="index.html" class="px-3" data-i18n="btn_home">Home</a><a href="taluks.html" class="px-3"
-                        data-i18n="nav_taluks">Taluks</a>
+    <header class="header glass-header">
+        <div class="container nav glass-pill">
+            <div class="logo-wrapper">
+                <img src="assets/icons/favicon.png" height="36px" width="36px" alt="Namma UK Logo">
+                <a href="index.html" class="logo text-lg font-bold text-white tracking-wide"
+                    data-i18n="app_title">Uttara Kannada</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="history.back()" class="glass-back-btn"><i class="fa-solid fa-arrow-left"></i> <span
+                        data-i18n="btn_back">Back</span></button>
+                <nav class="nav-links hidden md:flex gap-2">
+                    <a href="index.html" class="glass-back-btn" style="border:none; background:transparent;"
+                        data-i18n="btn_home">Home</a><a href="taluks.html" class="glass-back-btn"
+                        style="border:none; background:transparent;" data-i18n="nav_taluks">Taluks</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="sub-header" data-aos="fade-down">
+        <section class="sub-header" data-aos="fade-down"
+            style="background: linear-gradient(135deg, #115e59 0%, #0d9488 50%, #14b8a6 100%); padding-top: 10rem; padding-bottom: 4rem; color: white;">
             <div class="container">
-                <h1 data-i18n="about_title">About Uttara Kannada</h1>
-                <p class="text-muted" data-i18n="about_sub">
+                <h1 data-i18n="about_title" style="color:white; font-size:2.5rem; font-weight:800;">About Uttara Kannada
+                </h1>
+                <p class="text-muted" data-i18n="about_sub" style="color:rgba(255,255,255,0.9);">
                     Kashmir of Karnataka - Discover the rich history and heritage
                 </p>
             </div>
@@ -303,20 +308,20 @@
         </section>
     </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small class="text-muted" data-i18n="footer_text">&copy; <span id="currentYear"></span> NammaUK</small>
-    </div>
-  </footer>
+    <footer class="site-footer">
+        <div class="container">
+            <small class="text-muted" data-i18n="footer_text">&copy; <span id="currentYear"></span> NammaUK</small>
+        </div>
+    </footer>
     <script src="js/translations.js"></script>
 
     <script>
         AOS.init({ duration: 800, once: true, offset: 100 })
     </script>
-      <script>
-    // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
     <script src="js/dev.js"></script>
 </body>
 

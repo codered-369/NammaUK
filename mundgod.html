@@ -11,23 +11,29 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glass-nav.css">
 </head>
 
 <body class="bg-gray-50 font-sans">
 
   <!-- Header Section -->
-  <header class="header">
-    <div class="container nav">
-      <img src="assets/icons/favicon.png" height="50px" width="50px">
-      <a href="index.html" class="logo font-bold">Uttara Kannada</a>
-      <button onclick="history.back()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+  <header class="header glass-header">
+    <div class="container nav glass-pill">
+      <div class="logo-wrapper">
+        <img src="assets/icons/favicon.png" height="36px" width="36px" alt="Namma UK Logo">
+        <a href="index.html" class="logo text-lg font-bold text-white tracking-wide">Uttara Kannada</a>
+      </div>
+      <button onclick="history.back()" class="glass-back-btn"><i class="fa-solid fa-arrow-left"></i> <span
+          class="hidden sm:inline">Back</span></button>
     </div>
   </header>
 
   <main id="content">
-    <section class="sub-header" data-aos="fade-down">
+    <section class="sub-header" data-aos="fade-down"
+      style="background: linear-gradient(135deg, #115e59 0%, #0d9488 50%, #14b8a6 100%); padding-top: 10rem; padding-bottom: 4rem; color: white;">
       <div class="container">
-        <h1>Mundgod - Tourist Places</h1>
+        <h1 style="text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); color:white; font-size:2.5rem; font-weight:800;">Mundgod
+          - Tourist Places</h1>
       </div>
     </section>
     <section id="places" class="py-6">
@@ -46,14 +52,14 @@
   <script>
     const talukName = 'Mundgod';
   </script>
-    <script>
+  <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
   <script src="js/places-renderer.js"></script>
 
   <script src="js/translations.js"></script>
-    <script src="js/dev.js"></script>
+  <script src="js/dev.js"></script>
 </body>
 
 </html>

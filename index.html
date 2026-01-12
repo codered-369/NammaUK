@@ -12,6 +12,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glass-nav.css">
   <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="canonical" href="https://namma-uk.vercel.app/" />
   <meta name="description"
@@ -63,26 +64,36 @@
 
 
 <body class="bg-gray-50 text-slate-900">
-  <header class="header">
-    <div class="container nav">
-      <img src="assets/icons/favicon.png" height="50px" width="50px">
-      <a href="index.html" class="logo text-xl font-bold" data-aos="fade-right" data-i18n="app_title">Uttara Kannada</a>
+  <header class="header glass-header">
+    <div class="container nav glass-pill">
+      <div class="logo-wrapper">
+        <img src="assets/icons/favicon.png" height="36px" width="36px" alt="Namma UK Logo">
+        <a href="index.html" class="logo text-lg font-bold text-white tracking-wide" data-aos="fade-right"
+          data-i18n="app_title">Uttara Kannada</a>
+      </div>
+
+      <!-- Desktop Links (Hidden based on image provided, but keeping for functionality if needed, visually adjusted) -->
+      <!-- The user image implies a clean mobile-like nav even on desktop or just showing mobile view. I will hide them to match the "Nav like this" request strictly or style them minimally. 
+           Given the specific request "nav like this" with a mobile screenshot, I'll prioritize the look. 
+           However, hiding links on desktop is bad UX. I will keep them but style them white. -->
       <div class="nav-links hidden md:flex" data-aos="fade-left">
-        <a href="#featured" class="nav-link" data-i18n="nav_places">Places</a>
-        <a href="taluks.html" class="nav-link" data-i18n="nav_taluks">Taluks</a>
-        <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
+        <a href="#featured" class="nav-link text-white/90 hover:text-white" data-i18n="nav_places">Places</a>
+        <a href="taluks.html" class="nav-link text-white/90 hover:text-white" data-i18n="nav_taluks">Taluks</a>
+        <a href="about.html" class="nav-link text-white/90 hover:text-white" data-i18n="nav_about">About</a>
         <div class="lang-select-wrapper ml-4">
-          <select id="desktop-lang" onchange="setLanguage(this.value)" class="lang-dropdown">
-            <option value="en">English</option>
-            <option value="kn">ಕನ್ನಡ</option>
-            <option value="hi">हिन्दी</option>
+          <select id="desktop-lang" onchange="setLanguage(this.value)"
+            class="lang-dropdown bg-white/20 text-white border-white/30 backdrop-blur-sm option-black">
+            <option value="en" class="text-black">English</option>
+            <option value="kn" class="text-black">ಕನ್ನಡ</option>
+            <option value="hi" class="text-black">हिन्दी</option>
           </select>
         </div>
       </div>
-      <button class="md:hidden text-2xl" id="hamburger" aria-label="menu"><i class="fa-solid fa-bars"></i></button>
+
+      <button class="text-2xl text-white ml-auto md:ml-0" id="hamburger" aria-label="menu"><i
+          class="fa-solid fa-bars"></i></button>
     </div>
-    </div>
-    <div id="mobileMenu" class="mobile-menu md:hidden hidden">
+    <div id="mobileMenu" class="mobile-menu md:hidden hidden glass-mobile-menu">
       <div class="container p-4">
         <a href="taluks.html" class="block py-2" data-i18n="nav_taluks">All Taluks</a>
         <a href="about.html" class="block py-2" data-i18n="nav_about">About Uttara Kannada</a>
@@ -325,7 +336,7 @@
       color: #fff
     }
 
-    /* --- Robotic button upgrades --- */
+
     #chat-btn {
       border: none;
       box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
@@ -481,7 +492,7 @@
     }
   </style>
 
-  <!-- Button: replaced 💬 with SVG robo -->
+
   <div id="chat-btn" aria-label="Open chat" title="Chat">
     <svg class="robo" width="40" height="40" viewBox="0 0 64 64" role="img" aria-hidden="true">
       <!-- Body -->
@@ -508,7 +519,7 @@
     </svg>
   </div>
 
-  <!-- Your chat box: unchanged -->
+
   <div id="chat-box">
     <div id="chat-header">Travel Assistant</div>
     <div id="chat-messages"></div>
@@ -518,7 +529,7 @@
     </div>
   </div>
 
-  <!-- Paste this script just before </body> -->
+
   <script>
     const btn = document.getElementById('chat-btn'),
       box = document.getElementById('chat-box'),
@@ -690,6 +701,8 @@
     }
 
     if (slideCount > 0) {
+      // Ensure first slide is visible immediately
+      slides[0].classList.add('active');
       setInterval(nextSlide, 4000);
       console.log('Hero slider initialized with', slideCount, 'images');
     }
@@ -738,7 +751,7 @@
 
         const map = L.map('uk-map', {
           center: [14.65, 74.55],
-          zoom: 9,
+          zoom: 8,
           minZoom: 8,
           maxBounds: bounds,
           maxBoundsViscosity: 0.8,
@@ -980,10 +993,12 @@
       })
       .catch(e => console.error('Failed to load data', e));
   </script>
+
   <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
+
   <script>
     // Global visit counter using CountAPI with retry and periodic refresh.
     (function () {
@@ -1020,10 +1035,13 @@
       setInterval(refreshValue, 60000);
     })();
   </script>
+
   <script src="js/dev.js"></script>
+
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
   </script>
+
   <script defer src="/_vercel/speed-insights/script.js"></script>
 
 
