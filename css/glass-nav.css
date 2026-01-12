@@ -137,15 +137,14 @@
 
 /* Ensure Hamburger shows on desktop if that's the design (User requested specifically "like this" image) */
 /* The HTML change removed md:hidden, but we need to ensure flex behavior is correct */
-@media (min-width: 768px) {
 
-    /* If both links and hamburger are present, spacing */
-    .glass-pill #hamburger {
-        margin-left: 20px;
-        display: inline-flex;
-        /* Keep it visible if we want the "menu" option always available */
+/* Force hide on desktop if pure responsive behavior is desired now */
+@media (min-width: 768px) {
+    #hamburger {
+        display: none !important;
     }
 }
+
 
 /* Adjust dropdown for glass */
 .option-black option {
