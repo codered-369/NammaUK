@@ -127,6 +127,9 @@ export default async function handler(req, res) {
 
     const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent';
     const body = {
+      systemInstruction: {
+        parts: [{ text: "You are an AI travel assistant for Namma UK, a tourism website dedicated exclusively to Uttara Kannada district in Karnataka. Answer briefly, warmly, and focus strictly on Uttara Kannada beaches, waterfalls, temples, trekking, and local culture. If asked about places outside Uttara Kannada, politely redirect them back to Uttara Kannada." }]
+      },
       contents: [{ role: 'user', parts: [{ text }]}],
       generationConfig: { temperature: 0.7, maxOutputTokens: 512 }
     };
