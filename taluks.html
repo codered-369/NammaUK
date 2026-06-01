@@ -348,11 +348,9 @@
             }
           });
 
-          // draw route polyline only if we have at least one place with coordinates
-          let route = null;
+          // fit bounds without drawing a line for nearby places to avoid confusing zig-zag
           if (latlngs.length > 1) {
-            route = L.polyline(latlngs, { color: '#0891b2', weight: 4, opacity: 0.9 }).addTo(nearbyLayer);
-            nearbyMap.fitBounds(route.getBounds().pad(0.3));
+            nearbyMap.fitBounds(L.latLngBounds(latlngs).pad(0.3));
           } else {
             nearbyMap.setView([userLatLng.lat, userLatLng.lng], 12);
           }
@@ -375,6 +373,7 @@
           // record modal's start location and taluk so the Plan button can reuse it
           window._nearbyStartLatLng = { lat: userLatLng.lat, lng: userLatLng.lng };
           window._nearbyStartTaluk = startTaluk || null;
+          window._nearbyPlacesList = nearby.map(n => n.place);
         }
 
         // Button handlers
@@ -522,10 +521,11 @@
 
         let tripCloseFn = null;
 
-        async function planTripFrom(startLatLng, dayCount, startTaluk) {
+        async function planTripFrom(startLatLng, dayCount, startTaluk, allowedPlaces = null) {
+          const placesSource = allowedPlaces ? allowedPlaces : allPlaces;
           // stops per day approximate
-          const stopsTotal = Math.min(allPlaces.length, dayCount * 4);
-          const unvisited = allPlaces.slice();
+          const stopsTotal = allowedPlaces ? placesSource.length : Math.min(placesSource.length, dayCount * 4);
+          const unvisited = placesSource.slice();
           const route = [];
           let cur = { lat: startLatLng.lat, lng: startLatLng.lng };
 
@@ -567,6 +567,38 @@
             route.push(next);
             if (next.lat !== undefined && next.lng !== undefined) {
               cur = { lat: next.lat, lng: next.lng };
+            }
+          }
+
+          // Optimize route to remove self-intersections (2-opt algorithm)
+          if (route.length > 1) {
+            let improved = true;
+            while (improved) {
+              improved = false;
+              for (let i = 0; i < route.length - 1; i++) {
+                for (let j = i + 1; j < route.length; j++) {
+                  let p_prev = i === 0 ? startLatLng : route[i - 1];
+                  let p_i = route[i];
+                  let p_j = route[j];
+                  let p_next = j === route.length - 1 ? null : route[j + 1];
+
+                  if (p_prev.lat === undefined || p_i.lat === undefined || p_j.lat === undefined || (p_next && p_next.lat === undefined)) continue;
+
+                  let d1 = kmDistance(p_prev.lat, p_prev.lng, p_i.lat, p_i.lng);
+                  let d2 = p_next ? kmDistance(p_j.lat, p_j.lng, p_next.lat, p_next.lng) : 0;
+                  let currentDist = d1 + d2;
+
+                  let new_d1 = kmDistance(p_prev.lat, p_prev.lng, p_j.lat, p_j.lng);
+                  let new_d2 = p_next ? kmDistance(p_i.lat, p_i.lng, p_next.lat, p_next.lng) : 0;
+                  let newDist = new_d1 + new_d2;
+
+                  if (newDist < currentDist - 0.001) {
+                    let temp = route.slice(i, j + 1).reverse();
+                    route.splice(i, temp.length, ...temp);
+                    improved = true;
+                  }
+                }
+              }
             }
           }
 
@@ -723,9 +755,23 @@
 
           const coordOrName = (p) => {
             if (!p) return '';
+            
+            // If the user provided a carefully curated maps_url, extract the exact search query
+            if (p.maps_url) {
+              let match = p.maps_url.match(/\/search\/([^/?]+)/);
+              if (!match) match = p.maps_url.match(/[?&]q=([^&]+)/);
+              if (!match) match = p.maps_url.match(/\/place\/([^/?]+)/);
+              
+              if (match && match[1]) {
+                try {
+                  return decodeURIComponent(match[1]).replace(/\+/g, ' ');
+                } catch (e) {}
+              }
+            }
+            
+            // Fallback to exact coordinates if maps_url is missing or parsing fails
             if (p.lat && p.lng) return `${p.lat},${p.lng}`;
-            const label = (p.name || '') + (p.taluk ? ' ' + p.taluk : '');
-            return encodeURIComponent(label);
+            return '';
           };
 
           const origin = `${planned.start.lat},${planned.start.lng}`;
@@ -771,7 +817,7 @@
           nearbyPlanBtn.addEventListener('click', () => {
             if (!window._nearbyStartLatLng) return alert('No start location found for planning.');
             const dayCount = parseInt(document.getElementById('tripDays').value, 10) || 1;
-            planTripFrom(window._nearbyStartLatLng, dayCount, window._nearbyStartTaluk);
+            planTripFrom(window._nearbyStartLatLng, dayCount, window._nearbyStartTaluk, window._nearbyPlacesList);
             // close nearby modal after launching planner
             closeNearby();
           });
