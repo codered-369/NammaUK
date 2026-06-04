@@ -1,72 +1,4 @@
 
-
-
-///////////////////////////////////////////////
-
-
-// export default async function handler(req, res) {
-//   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-
-//   try {
-//     const { text = '' } = req.body || {};
-//     if (!text || !text.trim()) return res.status(400).json({ error: 'Missing text in body' });
-//     if (!process.env.GEMINI_API_KEY) return res.status(500).json({ error: 'GEMINI_API_KEY not set' });
-
-//     const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent';
-//     const body = {
-//       systemInstruction: {
-//         parts: [{ text: "You are an AI travel assistant for Namma UK, a tourism website dedicated exclusively to Uttara Kannada district in Karnataka. Answer briefly, warmly, and focus strictly on Uttara Kannada beaches, waterfalls, temples, trekking, and local culture. If asked about places outside Uttara Kannada, politely redirect them back to Uttara Kannada." }]
-//       },
-//       contents: [{ role: 'user', parts: [{ text }]}],
-//       generationConfig: { temperature: 0.7, maxOutputTokens: 512 }
-//     };
-
-//     const r = await fetch(url, {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json', 'X-goog-api-key': process.env.GEMINI_API_KEY },
-//       body: JSON.stringify(body)
-//     });
-
-//     const status = r.status;
-//     const ct = r.headers.get('content-type') || '';
-//     const raw = await r.text();
-//     console.log('Gemini status:', status, 'ct:', ct, 'preview:', raw.slice(0, 200));
-
-//     if (!ct.includes('application/json')) {
-//       return res.status(status >= 400 ? status : 502).json({
-//         error: 'Upstream returned non-JSON',
-//         status,
-//         contentType: ct,
-//         preview: raw.slice(0, 200)
-//       });
-//     }
-
-//     const j = JSON.parse(raw);
-//     if (!r.ok) return res.status(status).json({ error: 'Gemini error', details: j });
-
-//     const cand   = j?.candidates?.[0];
-//     const parts  = cand?.content?.parts || [];
-//     const reply  = parts.map(p => p.text || p.inlineData?.data || '').join('').trim();
-//     const finish = cand?.finishReason || 'UNKNOWN';
-
-//     if (!reply) return res.status(200).json({ text: '', finishReason: finish, note: 'Empty/blocked reply' });
-//     return res.status(200).json({ text: reply, finishReason: finish });
-//   } catch (e) {
-//     console.error('Server error:', e);
-//     return res.status(500).json({ error: 'Server error', message: e.message });
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
 // // /api/chat.js — Vercel serverless function for text-only chat
 // const MODEL_PRIMARY = 'gemini-2.5-flash-lite';
 // const MODEL_FALLBACK = 'gemini-3-flash';
@@ -297,7 +229,13 @@ function executePlanTrip(location, days, userOrigin) {
     if (p.maps_url) {
       let match = p.maps_url.match(/\/search\/([^/?]+)/) || p.maps_url.match(/[?&]q=([^&]+)/) || p.maps_url.match(/\/place\/([^/?]+)/);
       if (match && match[1]) {
-        try { return decodeURIComponent(match[1]).replace(/\+/g, ' '); } catch (e) {}
+        try { 
+          let query = decodeURIComponent(match[1]).replace(/\+/g, ' ');
+          if (!query.toLowerCase().includes('uttara kannada') && !query.toLowerCase().includes(p.taluk?.toLowerCase() || 'dummy')) {
+            query += `, ${p.taluk || ''}, Uttara Kannada`;
+          }
+          return query; 
+        } catch (e) {}
       }
     }
     if (p.lat && p.lng) return `${p.lat},${p.lng}`;
@@ -392,6 +330,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server error', message: e.message });
   }
 }
-
 
 
