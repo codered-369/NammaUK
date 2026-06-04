@@ -537,35 +537,63 @@
       input = document.getElementById('chat-text'),
       send = document.getElementById('send');
 
-    btn.onclick = () => box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'flex' : 'none';
+    let chatHistory = [];
+    let isFirstOpen = true;
+
+    btn.onclick = () => {
+      box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'flex' : 'none';
+      if (isFirstOpen && box.style.display === 'flex') {
+        isFirstOpen = false;
+        const welcomeText = "Namaskara! I'm your AI travel assistant for Namma UK. If you'd like me to plan a trip, just tell me where you are traveling from (e.g. Bengaluru, Hubli, or locally) and how many days you have!";
+        chatHistory.push({ role: 'model', parts: [{ text: welcomeText }] });
+        add('bot', welcomeText);
+      }
+    };
 
     function add(type, text) {
       const d = document.createElement('div');
       d.className = `msg ${type}`;
-      d.textContent = text;
+      if (type === 'bot') {
+        let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\n/g, '<br>');
+        html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g, '<a href="$2" target="_blank" style="color:#0ea5a4;font-weight:bold;text-decoration:underline;display:inline-block;margin-top:8px;">$1</a>');
+        d.innerHTML = html;
+      } else {
+        d.textContent = text;
+      }
       msgs.appendChild(d);
       msgs.scrollTop = msgs.scrollHeight;
       return d;
     }
 
     async function ask(text) {
+      chatHistory.push({ role: 'user', parts: [{ text }] });
       const typing = add('bot', '…');
       send.disabled = true;
       try {
         const r = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text })
+          body: JSON.stringify({ text, history: chatHistory })
         });
         const data = await r.json().catch(() => ({ error: 'Invalid JSON' }));
         if (!r.ok) {
           typing.textContent = `Error ${r.status}: ${data.error || 'Unknown'}`;
           console.debug('Details:', data.details || data.preview || '');
+          chatHistory.pop();
           return;
         }
-        typing.textContent = data.text || `No reply (${data.finishReason || 'unknown'})`;
+        const replyText = data.text || `No reply (${data.finishReason || 'unknown'})`;
+        chatHistory.push({ role: 'model', parts: [{ text: replyText }] });
+        
+        let html = replyText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\n/g, '<br>');
+        html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g, '<a href="$2" target="_blank" style="color:#0ea5a4;font-weight:bold;text-decoration:underline;display:inline-block;margin-top:8px;">$1</a>');
+        typing.innerHTML = html;
+        msgs.scrollTop = msgs.scrollHeight;
       } catch (err) {
         typing.textContent = `Network error: ${err.message}`;
+        chatHistory.pop();
       } finally {
         send.disabled = false;
       }
