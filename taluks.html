@@ -764,7 +764,11 @@
               
               if (match && match[1]) {
                 try {
-                  return decodeURIComponent(match[1]).replace(/\+/g, ' ');
+                  let query = decodeURIComponent(match[1]).replace(/\+/g, ' ');
+                  if (!query.toLowerCase().includes('uttara kannada') && !query.toLowerCase().includes(p.taluk?.toLowerCase() || 'dummy')) {
+                    query += `, ${p.taluk || ''}, Uttara Kannada`;
+                  }
+                  return query;
                 } catch (e) {}
               }
             }
